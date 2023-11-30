@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/widgets/constants.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -13,6 +15,69 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool _obscureText = true;
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController cPasswordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+
+
+  Future<void> _register(BuildContext context) async {
+    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/signup');
+
+    try {
+      final response = await http.post(
+        url,
+        headers: <String, String>{ 
+          'Content-Type': 'application/json; charset=UTF-8', 
+        }, 
+        body: jsonEncode(<String, dynamic>{
+          /////////////// controllers mesh metratebeen ratebhom lama handal yzawedlohom fieelds
+          'firstname': firstNameController.text,
+          'lastname': firstNameController.text,
+          'email': emailController.text,
+          'password': passwordController.text,
+          'cPassword': passwordController.text,
+          'phone': phoneController.text,
+          'address': emailController.text,
+        }),
+      );
+
+      final Map<String, dynamic> decodedBody = json.decode(response.body);
+      final int? statusCode = decodedBody['statusCode'];
+      final String? message = decodedBody['message'];
+      final List<dynamic>? errorMessages = decodedBody['data'] != null
+          ? List<String>.from(decodedBody['data'])
+          : null;
+
+      if (statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('$message')),
+        );
+      } else {
+        if (errorMessages == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('$message')),
+          );
+        } else {
+          final combinedErrors = errorMessages.join(', ');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('$message: $combinedErrors')),
+          );
+        }
+      }
+      
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: $error')),
+      );
+    }
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       children: [
         
                         TextFormField(
+                          controller: firstNameController,
                           textAlign: TextAlign.start,                          
                           decoration: InputDecoration(
                             filled: true,
@@ -121,6 +187,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
         
                         TextFormField(
+                          controller: phoneController,
                           textAlign: TextAlign.start,                          
                           decoration: InputDecoration(
                             filled: true,
@@ -161,6 +228,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         
                         TextFormField(
+                          controller: emailController,
                           textAlign: TextAlign.start,                          
                           decoration: InputDecoration(
                             filled: true,
@@ -201,6 +269,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                               
                         TextFormField(
+                          controller: passwordController,
                           textAlign: TextAlign.start,
                           obscureText: _obscureText,
                           decoration: InputDecoration(
@@ -252,7 +321,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               
                         GestureDetector(
 
-                          // onTap
+                          onTap: ()=>_register(context),
 
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,

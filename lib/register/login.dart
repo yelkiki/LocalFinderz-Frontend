@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, use_key_in_widget_constructors, must_be_immutable, unused_local_variable, use_build_context_synchronously, prefer_final_fields, unnecessary_null_comparison
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/widgets/constants.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key}); 
@@ -13,6 +16,56 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  Future<void> _login(BuildContext context) async {
+    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/login');
+
+    try {
+      final response = await http.post(
+        url,
+        headers: <String, String>{ 
+          'Content-Type': 'application/json; charset=UTF-8', 
+        }, 
+        body: jsonEncode(<String, String>{
+          'email': emailController.text,
+          'password': passwordController.text,
+        }),
+      );
+
+      final Map<String, dynamic> decodedBody = json.decode(response.body);
+      final int? statusCode = decodedBody['statusCode'];
+      final String? message = decodedBody['message'];
+      final List<dynamic>? errorMessages = decodedBody['data'] != null
+          ? List<String>.from(decodedBody['data'])
+          : null;
+
+      if (statusCode == 200) {
+        final String? token = decodedBody['token'];
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login successful! \nToken: $token')),
+        );
+      } else {
+        if (errorMessages == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('$message')),
+          );
+        } else {
+           final combinedErrors = errorMessages.join(', ');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('$message: $combinedErrors')),
+          );
+          }
+      }
+      
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: $error')),
+      );
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         
                         TextFormField(
-        
+                          controller: emailController,
                           textAlign: TextAlign.start,
                           
                           decoration: InputDecoration(
@@ -127,6 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                               
                         TextFormField(
+                          controller: passwordController,
                           textAlign: TextAlign.start,
                           obscureText: _obscureText,
                           decoration: InputDecoration(
@@ -198,6 +252,7 @@ class _LoginPageState extends State<LoginPage> {
                         GestureDetector(
 
                           /// onTap
+                          onTap: () =>_login(context),
 
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,
