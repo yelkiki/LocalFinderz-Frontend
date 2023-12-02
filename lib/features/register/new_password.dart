@@ -1,26 +1,25 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, duplicate_ignore
-
-import 'dart:convert';
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'verify.dart' as USER;
 
-class ForgetPassword extends StatefulWidget {
+class NewPassword extends StatefulWidget {
+  const NewPassword({super.key});
 
-  const ForgetPassword({super.key});
   @override
-  State<ForgetPassword> createState() => _ForgetPageState();
+  State<NewPassword> createState() => _NewPasswordState();
 }
 
+class _NewPasswordState extends State<NewPassword> {
 
-class _ForgetPageState extends State<ForgetPassword>{
+  final TextEditingController passController = TextEditingController();
 
-  final TextEditingController emailController = TextEditingController();
-
-  Future<void> _resetPassword(BuildContext context) async {
-    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/sendmail');
+  Future<void> _newPassword(BuildContext context) async {
+    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/changePass');
 
     final response = await http.post(
       url,
@@ -28,7 +27,8 @@ class _ForgetPageState extends State<ForgetPassword>{
         'Content-Type': 'application/json; charset=UTF-8', 
       }, 
       body: jsonEncode(<String, String>{
-        'email': emailController.text,
+        "id": USER.USERID,//hangeebo mel data mel verify token
+        'newPassword': passController.text,
       }),
     );
     
@@ -36,31 +36,31 @@ class _ForgetPageState extends State<ForgetPassword>{
     final Map<String, dynamic> decodedBody = json.decode(response.body);
     final int? statusCode = decodedBody['statusCode'];
     final String? message = decodedBody['message'];
-    final List<dynamic>? errorMessages = decodedBody['data'] != null
+    final List<dynamic>? data = decodedBody['data'] != null
         ? List<String>.from(decodedBody['data'])
         : null;
     if (statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('$message')),
       );
-      // hena redirect le page el verify token
+      // redirect lel login b2a
     }else{
-      if (errorMessages == null) {
+      if (data == null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('$message')),
           );
         } else {
-           final combinedErrors = errorMessages.join(', ');
+           final combinedErrors = data.join(', ');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('$message: $combinedErrors')),
           );
           }
     }
-  
-  }
 
 
-  @override
+
+
+@override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -69,7 +69,7 @@ class _ForgetPageState extends State<ForgetPassword>{
 
         appBar: AppBar(
         title: Text(
-          "Reset Password",
+          "New Password",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w500,
@@ -130,17 +130,52 @@ class _ForgetPageState extends State<ForgetPassword>{
                       children: [
                         
                         TextFormField(
-                          controller: emailController,
                           textAlign: TextAlign.start,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.grey.shade100,
-                            suffixIcon: Icon(
-                              Icons.mail,
-                              color: kMainColor,                           
+                            
+                            hintText: "New Password",
+                            hintStyle: TextStyle(
+                              color: kMainColor,
                             ),
-                            hintText: "E-mail",
+                            
+                            border: InputBorder.none,
+                            
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: kMainColor,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: firstColor,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(
+                          height: SizeConfig.defaultSize! * 2,
+                        ),
+
+                        TextFormField(
+                          textAlign: TextAlign.start,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.grey.shade100,
+                            
+                            hintText: "Confirm Password",
                             hintStyle: TextStyle(
                               color: kMainColor,
                             ),
@@ -176,8 +211,9 @@ class _ForgetPageState extends State<ForgetPassword>{
                               
                         GestureDetector(
                           onTap: () {
-                            _resetPassword(context);
-                            Navigator.pushNamed(context, "/verify");
+                            /////////////////////////// validation
+                            _newPassword(context);
+                            Navigator.pushNamed(context, "/login");
                           },
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,
@@ -222,5 +258,12 @@ class _ForgetPageState extends State<ForgetPassword>{
        
       ),
     );
+  }
+}
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
   }
 }
