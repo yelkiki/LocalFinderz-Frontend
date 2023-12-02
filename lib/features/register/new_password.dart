@@ -5,7 +5,7 @@ import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'verify.dart' as USER;
+// import 'verify.dart' as USER;
 
 class NewPassword extends StatefulWidget {
   const NewPassword({super.key});
@@ -27,7 +27,7 @@ class _NewPasswordState extends State<NewPassword> {
         'Content-Type': 'application/json; charset=UTF-8', 
       }, 
       body: jsonEncode(<String, String>{
-        "id": USER.USERID,//hangeebo mel data mel verify token
+        // "id": USER.USERID,//hangeebo mel data mel verify token
         'newPassword': passController.text,
       }),
     );
@@ -56,6 +56,8 @@ class _NewPasswordState extends State<NewPassword> {
           );
           }
     }
+
+  }
 
 
 
@@ -259,11 +261,5 @@ class _NewPasswordState extends State<NewPassword> {
       ),
     );
   }
-}
 
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
 }

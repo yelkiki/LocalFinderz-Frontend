@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:local_finderzzz/features/BottomNavBar/bottom_nav_bar.dart';
+import 'package:local_finderzzz/screens/BottomNavBar/bottom_nav_bar.dart';
 import 'package:local_finderzzz/features/register/forget_password.dart';
 import 'package:local_finderzzz/features/register/login.dart';
 import 'package:local_finderzzz/features/register/new_password.dart';

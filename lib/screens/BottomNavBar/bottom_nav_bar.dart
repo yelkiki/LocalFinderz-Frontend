@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_print
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/screens/cart.dart';
@@ -23,36 +25,52 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   final List<Widget> _pages = [
-   const HomePage(),
-   const UserInfo(),
-   const Settings(),
-   const Cart(),
-
+    HomePage(),
+    UserInfo(),
+    Settings(),
+    Cart(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
+      
       bottomNavigationBar: Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 30),
+
+
             child: CurvedNavigationBar(             
-              backgroundColor: Colors.purple,
-              color: Colors.white,
-              buttonBackgroundColor: Colors.white,
+              backgroundColor: Colors.deepPurple,
+              color: Colors.deepPurple.shade200,
+              
               animationCurve: Curves.easeInOut,
               animationDuration: const Duration(milliseconds: 300),             
               height: 70,
               onTap: (index) {
+                
                 _navigateBottomBar(index);
               },
+              letIndexChange: (index) => true,
               items: const [
-                Icon(Icons.home),
-                Icon(Icons.person),
-                Icon(Icons.settings),
-                Icon(Icons.shopping_cart),
+                Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.shopping_cart,
+                  color: Colors.white,
+                ),
               ],
             ),
           ),

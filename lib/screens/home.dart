@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
+        backgroundColor: Colors.deepPurple,
         
 
         body: ListView(

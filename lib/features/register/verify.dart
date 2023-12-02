@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, non_constant_identifier_names, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
@@ -57,7 +57,7 @@ class _VerifyTokenState extends State<VerifyToken> {
           );
           }
     }
-
+  }
 
 
 
@@ -220,12 +220,5 @@ class _VerifyTokenState extends State<VerifyToken> {
        
       ),
     );
-  }
-}
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }
