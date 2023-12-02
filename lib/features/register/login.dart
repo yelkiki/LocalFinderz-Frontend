@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, use_key_in_widget_constructors, must_be_immutable, unused_local_variable, use_build_context_synchronously, prefer_final_fields, unnecessary_null_comparison
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, use_key_in_widget_constructors, must_be_immutable, unused_local_variable, use_build_context_synchronously, prefer_final_fields, unnecessary_null_comparison, unused_element
 
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
-import 'package:local_finderzzz/widgets/constants.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
@@ -252,7 +252,11 @@ class _LoginPageState extends State<LoginPage> {
                         GestureDetector(
 
                           /// onTap
-                          onTap: () =>_login(context),
+                          // onTap: () =>_login(context),
+
+                          onTap: () {
+                            Navigator.pushNamed(context, "/home");
+                          },
 
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,

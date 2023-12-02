@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_const_constructors, must_be_immutable, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, must_be_immutable, prefer_const_literals_to_create_immutables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
-import 'package:local_finderzzz/widgets/constants.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

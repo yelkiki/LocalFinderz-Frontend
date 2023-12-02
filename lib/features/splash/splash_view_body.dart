@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:local_finderzzz/onBoarding/on_boarding.dart';
+import 'package:local_finderzzz/features/onBoarding/on_boarding.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
-import 'package:local_finderzzz/widgets/constants.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
-import 'package:local_finderzzz/widgets/constants.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class OnBoardingBody extends StatelessWidget {
   const OnBoardingBody({super.key});
