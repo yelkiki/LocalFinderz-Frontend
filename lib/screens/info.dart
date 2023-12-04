@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class UserInfo extends StatelessWidget {
@@ -5,6 +7,25 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.deepPurple,
+        
+
+        body: Center(
+          child: Text(
+            "user info",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+
+
+
+      ),
+    );
   }
 }

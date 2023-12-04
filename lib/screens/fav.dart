@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class Favourite extends StatelessWidget {
+  const Favourite({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class Settings extends StatelessWidget {
 
         body: Center(
           child: Text(
-            "settings",
+            "fav",
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
