@@ -16,7 +16,6 @@ class VerifyToken extends StatefulWidget {
 
 class _VerifyTokenState extends State<VerifyToken> {
     final TextEditingController tokenController = TextEditingController();
-
   Future<void> _verifyToken(BuildContext context) async {
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/verifyToken');
 
@@ -41,6 +40,7 @@ class _VerifyTokenState extends State<VerifyToken> {
       );
       final int? USERID = decodedBody['data'];
       // eb3at el data lel page elgya
+      Navigator.pushNamed(context, "/newpass");
       
     }else{
       final List<dynamic>? data = decodedBody['data'] != null
@@ -132,6 +132,7 @@ class _VerifyTokenState extends State<VerifyToken> {
                       children: [
                         
                         TextFormField(
+                          controller: tokenController,
                           textAlign: TextAlign.start,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
@@ -173,9 +174,10 @@ class _VerifyTokenState extends State<VerifyToken> {
                                                     
                         GestureDetector(
                           onTap: () {
+                            
                             _verifyToken(context);
                             
-                            Navigator.pushNamed(context, "/newpass");
+                            
                           },
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,

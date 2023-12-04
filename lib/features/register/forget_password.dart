@@ -44,6 +44,7 @@ class _ForgetPageState extends State<ForgetPassword>{
             SnackBar(content: Text('$message')),
       );
       // hena redirect le page el verify token
+      Navigator.pushNamed(context, "/verify");
     }else{
       if (errorMessages == null) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -177,7 +178,6 @@ class _ForgetPageState extends State<ForgetPassword>{
                         GestureDetector(
                           onTap: () {
                             _resetPassword(context);
-                            Navigator.pushNamed(context, "/verify");
                           },
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,

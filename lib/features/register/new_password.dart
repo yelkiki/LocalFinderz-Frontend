@@ -17,6 +17,7 @@ class NewPassword extends StatefulWidget {
 class _NewPasswordState extends State<NewPassword> {
 
   final TextEditingController passController = TextEditingController();
+  final TextEditingController confPassController = TextEditingController();
 
   Future<void> _newPassword(BuildContext context) async {
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/changePass');
@@ -26,9 +27,10 @@ class _NewPasswordState extends State<NewPassword> {
       headers: <String, String>{ 
         'Content-Type': 'application/json; charset=UTF-8', 
       }, 
-      body: jsonEncode(<String, String>{
-        // "id": USER.USERID,//hangeebo mel data mel verify token
+      body: jsonEncode(<String, dynamic>{
+        "id": 2,//hangeebo mel data mel verify token
         'newPassword': passController.text,
+        'cPassword': confPassController.text,
       }),
     );
     
@@ -44,6 +46,7 @@ class _NewPasswordState extends State<NewPassword> {
             SnackBar(content: Text('$message')),
       );
       // redirect lel login b2a
+      Navigator.pushNamed(context, "/login");
     }else{
       if (data == null) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -132,7 +135,10 @@ class _NewPasswordState extends State<NewPassword> {
                       children: [
                         
                         TextFormField(
+                          ///////// 5aleehom hidden da wel confirm
+                          controller: passController,
                           textAlign: TextAlign.start,
+                          
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -171,6 +177,7 @@ class _NewPasswordState extends State<NewPassword> {
                         ),
 
                         TextFormField(
+                          controller: confPassController,
                           textAlign: TextAlign.start,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
@@ -213,9 +220,7 @@ class _NewPasswordState extends State<NewPassword> {
                               
                         GestureDetector(
                           onTap: () {
-                            /////////////////////////// validation
                             _newPassword(context);
-                            Navigator.pushNamed(context, "/login");
                           },
                           child: Container(
                             height: SizeConfig.defaultSize! * 6,

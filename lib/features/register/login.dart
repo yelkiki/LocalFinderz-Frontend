@@ -255,7 +255,8 @@ class _LoginPageState extends State<LoginPage> {
                           // onTap: () =>_login(context),
 
                           onTap: () {
-                            Navigator.pushNamed(context, "/bottomNavBar");
+                            _login(context);
+                            // Navigator.pushNamed(context, "/bottomNavBar");
                           },
 
                           child: Container(

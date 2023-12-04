@@ -6,45 +6,24 @@
     "configurations": [
 
         {
-            "name": "LocalFinderzzz",
-            "cwd": "C:\\LocalFinderzzz",
+            "name": "frontend",
+            "cwd": "C:\\Users\\youss\\Desktop\\LocalFinderz\\frontend",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "LocalFinderzzz (profile mode)",
-            "cwd": "C:\\LocalFinderzzz",
+            "name": "frontend (profile mode)",
+            "cwd": "C:\\Users\\youss\\Desktop\\LocalFinderz\\frontend",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "LocalFinderzzz (release mode)",
-            "cwd": "C:\\LocalFinderzzz",
+            "name": "frontend (release mode)",
+            "cwd": "C:\\Users\\youss\\Desktop\\LocalFinderz\\frontend",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
         }
-
-        // {
-        //     "name": "flutter_application_1",
-        //     "cwd": "Users\\youss\\Desktop\\flutter_application_1",
-        //     "request": "launch",
-        //     "type": "dart"
-        // },
-        // {
-        //     "name": "flutter_application_1 (profile mode)",
-        //     "cwd": "Users\\youss\\Desktop\\flutter_application_1",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "profile"
-        // },
-        // {
-        //     "name": "flutter_application_1 (release mode)",
-        //     "cwd": "Users\\youss\\Desktop\\flutter_application_1",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "release"
-        // }
-    ]
+   ]
 }
