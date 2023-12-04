@@ -46,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Login successful! \nToken: $token')),
         );
+        Navigator.pushNamed(context, "/bottomNavBar");
       } else {
         if (errorMessages == null) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -256,7 +257,6 @@ class _LoginPageState extends State<LoginPage> {
 
                           onTap: () {
                             _login(context);
-                            // Navigator.pushNamed(context, "/bottomNavBar");
                           },
 
                           child: Container(

@@ -21,14 +21,14 @@ class _NewPasswordState extends State<NewPassword> {
 
   Future<void> _newPassword(BuildContext context) async {
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/changePass');
-
+    final userID = ModalRoute.of(context)!.settings.arguments as int?;
     final response = await http.post(
       url,
       headers: <String, String>{ 
         'Content-Type': 'application/json; charset=UTF-8', 
       }, 
       body: jsonEncode(<String, dynamic>{
-        "id": 2,//hangeebo mel data mel verify token
+        "id": userID,
         'newPassword': passController.text,
         'cPassword': confPassController.text,
       }),

@@ -40,7 +40,7 @@ class _VerifyTokenState extends State<VerifyToken> {
       );
       final int? USERID = decodedBody['data'];
       // eb3at el data lel page elgya
-      Navigator.pushNamed(context, "/newpass");
+      Navigator.pushNamed(context, "/newpass",arguments: USERID);
       
     }else{
       final List<dynamic>? data = decodedBody['data'] != null
