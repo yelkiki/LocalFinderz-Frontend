@@ -38,6 +38,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: _pages[_selectedIndex],
 
       backgroundColor: Colors.transparent,
