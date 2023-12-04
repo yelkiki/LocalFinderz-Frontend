@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_finderzzz/features/onBoarding/on_boarding.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
-import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -102,59 +101,20 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
                 end: _bottomAlignmentAnimation.value,
               ),
             ),
-            child: Column(
-              children: [
-
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 3,
-                ),
-        
-                Padding(
-                  padding: const EdgeInsets.only(right: 200),
-                  child: Container(
-                    height: SizeConfig.defaultSize! * 20,
-                    width: SizeConfig.defaultSize! * 35,
-                    child: Center(
-                      child: Text(
-                        "Welcome To",
-                        style: TextStyle(
-                          fontSize: 25,
-                          // fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic,
-                          fontFamily: "blacklisted",
-                          color: secondColor,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+            child: Center(
+              child: Container(
+                height: SizeConfig.defaultSize! * 23,
+                width: SizeConfig.defaultSize! * 33,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/localfinderz-high-resolution-logo-white-transparent.png"),
+                    fit: BoxFit.fitWidth,
                   ),
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(15),
                 ),
-
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Container(
-                    height: SizeConfig.defaultSize! * 23,
-                    width: SizeConfig.defaultSize! * 33,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/localfinderz-high-resolution-logo-white-transparent.png"),
-                        fit: BoxFit.fitWidth,
-                      ),
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                                            
-                  ),
-                ),    
-
-
-                // CircleAvatar(
-                //   backgroundImage: AssetImage("assets/images/localfinderz-high-resolution-logo-white-transparent.png"),
-                //   radius: 140,
-                // ),
-
-
-              ],
+                                        
+              ),
             ),
           );
         },       

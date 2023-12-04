@@ -5,22 +5,22 @@
     "version": "0.2.0",
     "configurations": [
 
-        {
-            "name": "frontend",
-            "cwd": "C:\\Users\\youss\\Desktop\\LocalFinderz\\frontend",
+        {          
+            "name": "LocalFinderzzz",
+            "cwd": "C:\\LocalFinderzzz",
             "request": "launch",
             "type": "dart"
         },
-        {
-            "name": "frontend (profile mode)",
-            "cwd": "C:\\Users\\youss\\Desktop\\LocalFinderz\\frontend",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "frontend (release mode)",
-            "cwd": "C:\\Users\\youss\\Desktop\\LocalFinderz\\frontend",
+        // {   
+        //     "name": "LocalFinderzzz (profile mode)",
+        //     "cwd": "C:\\LocalFinderzzz",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "profile"
+        // },
+        {  
+            "name": "LocalFinderzzz (release mode)",
+            "cwd": "C:\\LocalFinderzzz",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

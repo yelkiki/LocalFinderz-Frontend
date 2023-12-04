@@ -16,6 +16,8 @@ class NewPassword extends StatefulWidget {
 
 class _NewPasswordState extends State<NewPassword> {
 
+  bool _obscureText = true;
+
   final TextEditingController passController = TextEditingController();
   final TextEditingController confPassController = TextEditingController();
 
@@ -138,7 +140,7 @@ class _NewPasswordState extends State<NewPassword> {
                           ///////// 5aleehom hidden da wel confirm
                           controller: passController,
                           textAlign: TextAlign.start,
-                          
+                          obscureText: _obscureText,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -147,6 +149,18 @@ class _NewPasswordState extends State<NewPassword> {
                             hintText: "New Password",
                             hintStyle: TextStyle(
                               color: kMainColor,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureText ? Icons.visibility_off : Icons.visibility,
+                                color: _obscureText ? kMainColor : thirdColor,
+                              ),
+                              
+                              onPressed: () {
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
                             ),
                             
                             border: InputBorder.none,
@@ -179,6 +193,7 @@ class _NewPasswordState extends State<NewPassword> {
                         TextFormField(
                           controller: confPassController,
                           textAlign: TextAlign.start,
+                          obscureText: _obscureText,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -187,6 +202,18 @@ class _NewPasswordState extends State<NewPassword> {
                             hintText: "Confirm Password",
                             hintStyle: TextStyle(
                               color: kMainColor,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureText ? Icons.visibility_off : Icons.visibility,
+                                color: _obscureText ? kMainColor : thirdColor,
+                              ),
+                              
+                              onPressed: () {
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
                             ),
                             
                             border: InputBorder.none,
