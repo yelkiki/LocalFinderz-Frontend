@@ -9,8 +9,8 @@ class Favourite extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.deepPurple,
-        
+        backgroundColor: Colors.transparent,
+        // extendBody: true,
 
         body: Center(
           child: Text(

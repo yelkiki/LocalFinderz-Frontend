@@ -19,8 +19,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   int _selectedIndex = 2;
 
-  // final navigationKey = GlobalKey<CurvedNavigationBarState>();
-
   void _navigateBottomBar (int index){
     setState(() {
       _selectedIndex = index;
@@ -37,64 +35,58 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
+        
+        extendBody: true,
+        backgroundColor: Colors.deepPurple,
       
-      body: _pages[_selectedIndex],
-
-      backgroundColor: Colors.transparent,
-      
-      bottomNavigationBar: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          color: Colors.deepPurple.shade200,
+          animationCurve: Curves.easeInOut,
+          animationDuration: const Duration(milliseconds: 300),   
+          height: 70,
+          onTap:(index) {
+            _navigateBottomBar(index);
+          },
+          
+          index: _selectedIndex,
+          
+          items: const [
             
-            padding: const EdgeInsets.only(bottom: 30),
-
-            child: CurvedNavigationBar(
-
-              // key: navigationKey,
-              backgroundColor: Colors.deepPurple,
-              color: Colors.deepPurple.shade200,              
-              animationCurve: Curves.easeInOut,
-              animationDuration: const Duration(milliseconds: 300),             
-              height: 70,
-              onTap:(index) {
-                _navigateBottomBar(index);
-              },
-              
-              index: _selectedIndex,
-              
-              items: const [
-                
-                Icon(
-                  Icons.person,
-                  color: Colors.white,                  
-                ),
-
-                Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                ),
-
-                Icon(
-                  Icons.home,
-                  color: Colors.white,
-                ),
-
-                Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                ),
-
-                Icon(
-                  Icons.shopping_cart,
-                  color: Colors.white,
-                ),
-
-              ],
-              
+            Icon(
+              Icons.person,
+              color: Colors.white,                  
             ),
-          ),
+    
+            Icon(
+              Icons.favorite,
+              color: Colors.white,
+            ),
+    
+            Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+    
+            Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+    
+            Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+            ),
+    
+          ],
+          
         ),
+    
+        body: _pages[_selectedIndex],
+    
+      ),
     );
   }
 }
