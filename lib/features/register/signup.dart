@@ -15,6 +15,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool _obscureText = true;
+  bool _obscureTextConfirmPassword = true;
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -36,12 +37,12 @@ class _SignUpPageState extends State<SignUpPage> {
         body: jsonEncode(<String, dynamic>{
           /////////////// controllers mesh metratebeen ratebhom lama handal yzawedlohom fieelds
           'firstname': firstNameController.text,
-          'lastname': firstNameController.text,
+          'lastname': lastNameController.text,
           'email': emailController.text,
           'password': passwordController.text,
-          'cPassword': passwordController.text,
+          'cPassword': cPasswordController.text,
           'phone': phoneController.text,
-          'address': emailController.text,
+          'address': addressController.text,
         }),
       );
 
@@ -85,314 +86,451 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
 
-        body: Stack(
-          children: [
-        
-            Container(
-              height: SizeConfig.screenHeight,
-              width: SizeConfig.screenWidth,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    kMainColor,
-                    thirdColor,
-                  ]
-                ),
-              ),
-        
-              child: Padding(
-                padding: const EdgeInsets.only(top: 50.0, left: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "SIGN UP NOW!",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FontStyle.italic,
-                            fontFamily: "blacklisted"
-                          ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-        
-            Padding(
-              padding: const EdgeInsets.only(top: 150.0),
-            
-              child: Container(
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+          
+              Container(
                 height: SizeConfig.screenHeight,
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40)
+                  gradient: LinearGradient(
+                    colors: [
+                      kMainColor,
+                      thirdColor,
+                    ]
                   ),
-                  color: Colors.white,
                 ),
-                
-                child:  Padding(
-                  padding: const EdgeInsets.only(left: 18.0,right: 18),
-            
-                  child: Form(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-        
-                        TextFormField(
-                          controller: firstNameController,
-                          textAlign: TextAlign.start,                          
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey.shade100,
-                            hintText: "Username",
-                            hintStyle: TextStyle(
-                              color: kMainColor,
-                              
+          
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 50.0, left: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "SIGN UP NOW!",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FontStyle.italic,
+                              fontFamily: "blacklisted"
                             ),
-                            suffixIcon: Icon(
-                              Icons.person,
-                              color: kMainColor,                                                      
-                            ),                            
-                            border: InputBorder.none,                            
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          
+              Padding(
+                padding: const EdgeInsets.only(top: 150.0),
+              
+                child: Container(
+                  height: SizeConfig.screenHeight,
+                  width: SizeConfig.screenWidth,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40)
+                    ),
+                    color: Colors.white,
+                  ),
+                  
+                  child:  Padding(
+                    padding: const EdgeInsets.only(left: 18.0,right: 18),
+              
+                    child: Form(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+          
+                          TextFormField(
+                            controller: firstNameController,
+                            textAlign: TextAlign.start,                          
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "First Name",
+                              hintStyle: TextStyle(
                                 color: kMainColor,
+                                
                               ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: thirdColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.red,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-        
-                        SizedBox(
-                          height: SizeConfig.defaultSize! * 2,
-                        ),
-        
-                        TextFormField(
-                          controller: phoneController,
-                          textAlign: TextAlign.start,                          
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey.shade100,
-                            hintText: "Phone Number",
-                            hintStyle: TextStyle(
-                              color: kMainColor,
-                              
-                            ),
-                            suffixIcon: Icon(
-                              Icons.phone,
-                              color: kMainColor,                                                      
-                            ),                            
-                            border: InputBorder.none,                            
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: kMainColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: thirdColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.red,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-        
-                        SizedBox(
-                          height: SizeConfig.defaultSize! * 2,
-                        ),
-                        
-                        TextFormField(
-                          controller: emailController,
-                          textAlign: TextAlign.start,                          
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey.shade100,
-                            hintText: "E-mail",
-                            hintStyle: TextStyle(
-                              color: kMainColor,
-                              
-                            ),
-                            suffixIcon: Icon(
-                              Icons.mail,
-                              color: kMainColor,                                                      
-                            ),                            
-                            border: InputBorder.none,                            
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: kMainColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: thirdColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.red,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-        
-                        SizedBox(
-                          height: SizeConfig.defaultSize! * 2,
-                        ),
-                              
-                        TextFormField(
-                          controller: passwordController,
-                          textAlign: TextAlign.start,
-                          obscureText: _obscureText,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey.shade100,
-                            hintText: "Password",
-                            hintStyle: TextStyle(
-                              color: kMainColor,
-                            ),
-                            border: InputBorder.none,
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _obscureText ? Icons.visibility_off : Icons.visibility,
-                                color: _obscureText ? kMainColor : thirdColor,
-                              ),
-                              
-                              onPressed: () {
-                                setState(() {
-                                  _obscureText = !_obscureText;
-                                });
-                              },
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: kMainColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: thirdColor,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.red,
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-                              
-                        
-                              
-                        SizedBox(
-                          height: SizeConfig.defaultSize! * 5,
-                        ),
-                              
-                        GestureDetector(
-
-                          onTap: ()=>_register(context),
-
-                          child: Container(
-                            height: SizeConfig.defaultSize! * 6,
-                            width: SizeConfig.defaultSize! * 30,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  kMainColor,
-                                  thirdColor,
-                                ]
-                              ),
-                            ),
-                                    
-                            child: Center(
-                              child: Text(
-                                "S I G N   U P",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "blacklisted",
-                                  fontSize: 22,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                              
-                        SizedBox(
-                          height: SizeConfig.defaultSize! * 3,
-                        ),
-                              
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                                  
-                            Text(
-                              "Do you have an account?",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: thirdColor,
-                                fontSize: 17,
-                              ),
-                            ),
-        
-                            SizedBox(
-                              height: SizeConfig.defaultSize! * 1,
-                            ),
-                                  
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(context, "/login");
-                              },
-                              child: Text(
-                                "SIGN IN",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                              suffixIcon: Icon(
+                                Icons.person,
+                                color: kMainColor,                                                      
+                              ),                            
+                              border: InputBorder.none,                            
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
                                   color: kMainColor,
                                 ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                          ],
-                        )
-                      ],
+                          ),
+          
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+                          
+                          TextFormField(
+                            controller: lastNameController,
+                            textAlign: TextAlign.start,                          
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "Last Name",
+                              hintStyle: TextStyle(
+                                color: kMainColor,
+                                
+                              ),
+                              suffixIcon: Icon(
+                                Icons.person,
+                                color: kMainColor,                                                      
+                              ),                            
+                              border: InputBorder.none,                            
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: kMainColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+          
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+                          
+                          TextFormField(
+                            controller: emailController,
+                            textAlign: TextAlign.start,                          
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "E-mail",
+                              hintStyle: TextStyle(
+                                color: kMainColor,
+                                
+                              ),
+                              suffixIcon: Icon(
+                                Icons.mail,
+                                color: kMainColor,                                                      
+                              ),                            
+                              border: InputBorder.none,                            
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: kMainColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+          
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+                                
+                          TextFormField(
+                            controller: passwordController,
+                            textAlign: TextAlign.start,
+                            obscureText: _obscureText,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "Password",
+                              hintStyle: TextStyle(
+                                color: kMainColor,
+                              ),
+                              border: InputBorder.none,
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscureText ? Icons.visibility_off : Icons.visibility,
+                                  color: _obscureText ? kMainColor : thirdColor,
+                                ),
+                                
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureText = !_obscureText;
+                                  });
+                                },
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: kMainColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                                
+                          
+                                
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+          
+                          TextFormField(
+                            controller: cPasswordController,
+                            textAlign: TextAlign.start,
+                            obscureText: _obscureTextConfirmPassword,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "Confirm Password",
+                              hintStyle: TextStyle(
+                                color: kMainColor,
+                              ),
+                              border: InputBorder.none,
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscureTextConfirmPassword ? Icons.visibility_off : Icons.visibility,
+                                  color: _obscureTextConfirmPassword ? kMainColor : thirdColor,
+                                ),
+                                
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureTextConfirmPassword = !_obscureTextConfirmPassword;
+                                  });
+                                },
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: kMainColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                                
+                          
+                                
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+                                
+          
+                          TextFormField(
+                            controller: phoneController,
+                            textAlign: TextAlign.start,                          
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "Phone Number",
+                              hintStyle: TextStyle(
+                                color: kMainColor,
+                                
+                              ),
+                              suffixIcon: Icon(
+                                Icons.phone,
+                                color: kMainColor,                                                      
+                              ),                            
+                              border: InputBorder.none,                            
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: kMainColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+          
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+          
+                          TextFormField(
+                            //////////////////// zabat el icon
+                            controller: addressController,
+                            textAlign: TextAlign.start,                          
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey.shade100,
+                              hintText: "Address",
+                              hintStyle: TextStyle(
+                                color: kMainColor,
+                                
+                              ),
+                              suffixIcon: Icon(
+                                Icons.phone,
+                                color: kMainColor,                                                      
+                              ),                            
+                              border: InputBorder.none,                            
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: kMainColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: thirdColor,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                ),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+          
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 2,
+                          ),
+          
+                          GestureDetector(
+          
+                            onTap: ()=>_register(context),
+          
+                            child: Container(
+                              height: SizeConfig.defaultSize! * 6,
+                              width: SizeConfig.defaultSize! * 30,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    kMainColor,
+                                    thirdColor,
+                                  ]
+                                ),
+                              ),
+                                      
+                              child: Center(
+                                child: Text(
+                                  "S I G N   U P",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "blacklisted",
+                                    fontSize: 22,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                                
+                          SizedBox(
+                            height: SizeConfig.defaultSize! * 3,
+                          ),
+                                
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                                    
+                              Text(
+                                "Do you have an account?",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: thirdColor,
+                                  fontSize: 17,
+                                ),
+                              ),
+          
+                              SizedBox(
+                                height: SizeConfig.defaultSize! * 1,
+                              ),
+                                    
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, "/login");
+                                },
+                                child: Text(
+                                  "SIGN IN",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: kMainColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         )
       ),
     );
