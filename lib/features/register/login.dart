@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, use_key_in_widget_constructors, must_be_immutable, unused_local_variable, use_build_context_synchronously, prefer_final_fields, unnecessary_null_comparison, unused_element
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, body_might_complete_normally_nullable, use_key_in_widget_constructors, must_be_immutable, unused_local_variable, use_build_context_synchronously, prefer_final_fields, unnecessary_null_comparison, unused_element, unnecessary_string_interpolations
 
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'package:http/http.dart' as http;
@@ -43,30 +45,23 @@ class _LoginPageState extends State<LoginPage> {
 
       if (statusCode == 200) {
         final String? token = decodedBody['token'];
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login successful! \nToken: $token')),
-        );
-        Navigator.pushNamed(context, "/bottomNavBar");
+        ////// efteker el admin & user
+        Navigator.pushNamed(context, "/bottomNavBar",arguments: token);
+        // Navigator.pushNamed(context, "/admin",arguments: token);
       } else {
         if (errorMessages == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-          );
+          showToast(message: "$message");
         } else {
            final combinedErrors = errorMessages.join(', ');
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message: $combinedErrors')),
-          );
+          showToast(message: "$combinedErrors");
           }
       }
       
     } catch (error) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $error')),
-      );
+      showToast(message: "An error occured, please try again!");
     }
   }
-
+//assets/images/glowing trash bag.png
 
   @override
   Widget build(BuildContext context) {
@@ -78,42 +73,27 @@ class _LoginPageState extends State<LoginPage> {
           children: [
         
             Container(
-              height: SizeConfig.screenHeight,
+              height: SizeConfig.defaultSize! * 41,
               width: SizeConfig.screenWidth,
+              
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    kMainColor,
-                    thirdColor,
-                  ]
+                image: DecorationImage(
+                  image: AssetImage("assets/images/locaal_moot.png"),
+                  fit: BoxFit.fitWidth,
                 ),
+                // gradient: LinearGradient(
+                //   colors: [
+                //     kMainColor,
+                //     thirdColor,
+                //   ]
+                // ),
               ),
         
-              child: Padding(
-                padding: const EdgeInsets.only(top: 50.0, left: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "SIGN IN NOW!",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FontStyle.italic,
-                            fontFamily: "blacklisted"
-                          ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              
             ),
         
             Padding(
-              padding: const EdgeInsets.only(top: 150.0),
+              padding: const EdgeInsets.only(top: 350.0),
             
               child: Container(
                 height: SizeConfig.screenHeight,
@@ -131,8 +111,12 @@ class _LoginPageState extends State<LoginPage> {
             
                   child: Form(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+
+                        SizedBox(
+                          height: SizeConfig.defaultSize! * 3,
+                        ),
                         
                         TextFormField(
                           controller: emailController,
@@ -239,15 +223,32 @@ class _LoginPageState extends State<LoginPage> {
                               "Forgot Password?",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                color: kMainColor,
+                                fontSize: 15.sp,
+                                color: thirdColor,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "/bottomNavBar");
+                            },
+                            child: Text(
+                              "skip",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
+                                color: thirdColor,
                               ),
                             ),
                           ),
                         ),
                               
                         SizedBox(
-                          height: SizeConfig.defaultSize! * 7,
+                          height: SizeConfig.defaultSize! * 4,
                         ),
                               
                         GestureDetector(
@@ -290,7 +291,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: SizeConfig.defaultSize! * 3,
                         ),
                               
-                        Column(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                                   
@@ -298,13 +299,13 @@ class _LoginPageState extends State<LoginPage> {
                               "Don't have an account?",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: thirdColor,
-                                fontSize: 17,
+                                color: kMainColor,
+                                fontSize: 15.sp,
                               ),
                             ),
         
                             SizedBox(
-                              height: SizeConfig.defaultSize! * 1,
+                              width: SizeConfig.defaultSize! * 1,
                             ),
                                   
                             GestureDetector(
@@ -315,8 +316,8 @@ class _LoginPageState extends State<LoginPage> {
                                 "SIGN UP",
                                 style: TextStyle(///done login page
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: kMainColor,
+                                  fontSize: 16.sp,
+                                  color: thirdColor,
                                 ),
                               ),
                             ),

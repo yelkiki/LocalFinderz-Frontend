@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'dart:convert';
@@ -16,7 +17,8 @@ class NewPassword extends StatefulWidget {
 
 class _NewPasswordState extends State<NewPassword> {
 
-  bool _obscureText = true;
+  bool _obscureText1 = true;
+  bool _obscureText2 = true;
 
   final TextEditingController passController = TextEditingController();
   final TextEditingController confPassController = TextEditingController();
@@ -44,22 +46,16 @@ class _NewPasswordState extends State<NewPassword> {
         ? List<String>.from(decodedBody['data'])
         : null;
     if (statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-      );
+      showToast(message: "$message");
       // redirect lel login b2a
       Navigator.pushNamed(context, "/login");
     }else{
       if (data == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-          );
+          showToast(message: "$message");
         } else {
            final combinedErrors = data.join(', ');
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message: $combinedErrors')),
-          );
-          }
+          showToast(message: "$combinedErrors");
+        }
     }
 
   }
@@ -140,7 +136,7 @@ class _NewPasswordState extends State<NewPassword> {
                           ///////// 5aleehom hidden da wel confirm
                           controller: passController,
                           textAlign: TextAlign.start,
-                          obscureText: _obscureText,
+                          obscureText: _obscureText1,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -152,13 +148,13 @@ class _NewPasswordState extends State<NewPassword> {
                             ),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _obscureText ? Icons.visibility_off : Icons.visibility,
-                                color: _obscureText ? kMainColor : thirdColor,
+                                _obscureText1 ? Icons.visibility_off : Icons.visibility,
+                                color: _obscureText1 ? kMainColor : thirdColor,
                               ),
                               
                               onPressed: () {
                                 setState(() {
-                                  _obscureText = !_obscureText;
+                                  _obscureText1 = !_obscureText1;
                                 });
                               },
                             ),
@@ -193,7 +189,7 @@ class _NewPasswordState extends State<NewPassword> {
                         TextFormField(
                           controller: confPassController,
                           textAlign: TextAlign.start,
-                          obscureText: _obscureText,
+                          obscureText: _obscureText2,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -205,13 +201,13 @@ class _NewPasswordState extends State<NewPassword> {
                             ),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _obscureText ? Icons.visibility_off : Icons.visibility,
-                                color: _obscureText ? kMainColor : thirdColor,
+                                _obscureText2 ? Icons.visibility_off : Icons.visibility,
+                                color: _obscureText2 ? kMainColor : thirdColor,
                               ),
                               
                               onPressed: () {
                                 setState(() {
-                                  _obscureText = !_obscureText;
+                                  _obscureText2 = !_obscureText2;
                                 });
                               },
                             ),

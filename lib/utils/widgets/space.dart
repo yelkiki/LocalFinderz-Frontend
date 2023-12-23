@@ -3,8 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 
-class HorizintalSpace extends StatelessWidget {
-  const HorizintalSpace(this.value) ;
+class HorizontalSpace extends StatelessWidget {
+  const HorizontalSpace(this.value) ;
  final double? value;
   @override 
   Widget build(BuildContext context) {

@@ -2,11 +2,13 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_finderzzz/screens/cart.dart';
 import 'package:local_finderzzz/screens/fav.dart';
 import 'package:local_finderzzz/screens/home.dart';
 import 'package:local_finderzzz/screens/info.dart';
 import 'package:local_finderzzz/screens/settings.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -35,58 +37,64 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        
-        extendBody: true,
-        backgroundColor: Colors.deepPurple,
+    return Scaffold(
       
-        bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.transparent,
-          color: Colors.deepPurple.shade200,
-          animationCurve: Curves.easeInOut,
-          animationDuration: const Duration(milliseconds: 300),   
-          height: 70,
-          onTap:(index) {
-            _navigateBottomBar(index);
-          },
+      extendBody: true,
+      // backgroundColor: Colors.transparent,
+    
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        buttonBackgroundColor: Colors.black,
+        color: Colors.black,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),   
+        height: 70,
+        onTap:(index) {
+          _navigateBottomBar(index);
+        },
+        
+        index: _selectedIndex,
+        
+        items: const [
           
-          index: _selectedIndex,
+          Icon(
+            Icons.person,
+            color: secondColor,                  
+          ),
+    
+          Icon(
+            Icons.favorite,
+            color: secondColor,
+          ),
+    
+          Icon(
+            Icons.home,
+            color: secondColor,
+          ),
+    
+          Icon(
+            Icons.settings,
+            color: secondColor,
+          ),
+    
+          Icon(
+            Icons.shopping_cart,
+            color: secondColor,
+          ),
+    
+        ],
+        
+      ),
+    
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: _pages[_selectedIndex],
+          ),
           
-          items: const [
-            
-            Icon(
-              Icons.person,
-              color: Colors.white,                  
-            ),
-    
-            Icon(
-              Icons.favorite,
-              color: Colors.white,
-            ),
-    
-            Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
-    
-            Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-    
-            Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
-            ),
-    
-          ],
-          
-        ),
-    
-        body: _pages[_selectedIndex],
-    
+        ],
       ),
     );
   }
 }
+

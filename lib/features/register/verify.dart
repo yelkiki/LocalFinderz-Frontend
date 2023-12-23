@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, non_constant_identifier_names, unused_local_variable
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, non_constant_identifier_names, unused_local_variable, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'dart:convert';
@@ -35,9 +37,7 @@ class _VerifyTokenState extends State<VerifyToken> {
     final String? message = decodedBody['message'];
     
     if (statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-      );
+      showToast(message: "$message");
       final int? USERID = decodedBody['data'];
       // eb3at el data lel page elgya
       Navigator.pushNamed(context, "/newpass",arguments: USERID);
@@ -47,14 +47,10 @@ class _VerifyTokenState extends State<VerifyToken> {
           ? List<String>.from(decodedBody['data'])
           : null;
       if (data == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-          );
+          showToast(message: "$message");
         } else {
            final combinedErrors = data.join(', ');
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message: $combinedErrors')),
-          );
+          showToast(message: "$combinedErrors");
           }
     }
   }
@@ -70,28 +66,28 @@ class _VerifyTokenState extends State<VerifyToken> {
         resizeToAvoidBottomInset: false,
 
         appBar: AppBar(
-        title: Text(
-          "verification",
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-            fontFamily: "blacklisted"
+          title: Text(
+            "verification",
+            style: TextStyle(
+              fontSize: 22.sp,
+              fontWeight: FontWeight.w500,
+              fontFamily: "blacklisted"
+            ),
           ),
-        ),
-        elevation: 2.0,
-        toolbarHeight: SizeConfig.defaultSize! * 8,
-        centerTitle: true,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-              ]
+          elevation: 2.0.h,
+          toolbarHeight: SizeConfig.defaultSize! * 8,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: const [
+                  kMainColor,
+                  thirdColor,
+                ]
+              ),
             ),
           ),
         ),
-      ),
     
         body: Stack(
           children: [

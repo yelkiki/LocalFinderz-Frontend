@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -17,8 +18,8 @@ class WelcomeScreen extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: const [
-                Color.fromARGB(255, 40, 5, 75),
-                Color.fromARGB(255, 166, 14, 77)
+                kMainColor,
+                thirdColor
               ],
             ),                     
           ),
@@ -67,8 +68,8 @@ class WelcomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: const [
-                          Color.fromARGB(255, 40, 5, 75),
-                          Color.fromARGB(255, 166, 14, 77)
+                          kMainColor,
+                          thirdColor
                         ],
                       ),
                       borderRadius: BorderRadius.circular(40),
@@ -106,8 +107,8 @@ class WelcomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: const [
-                          Color.fromARGB(255, 40, 5, 75),
-                          Color.fromARGB(255, 166, 14, 77)
+                          kMainColor,
+                          thirdColor
                         ],
                       ),
                       borderRadius: BorderRadius.circular(40),

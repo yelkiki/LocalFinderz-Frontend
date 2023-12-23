@@ -16,7 +16,7 @@ class Cart extends StatelessWidget {
           child: Text(
             "cart",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),

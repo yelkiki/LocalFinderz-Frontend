@@ -16,7 +16,7 @@ class Settings extends StatelessWidget {
           child: Text(
             "settings",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_finderzzz/features/onBoarding/on_boarding.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -92,26 +93,27 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
             height: SizeConfig.screenHeight,
             width: SizeConfig.screenWidth,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: const [
-                  Color.fromARGB(255, 40, 5, 75),
-                  Color.fromARGB(255, 166, 14, 77)
-                ],
-                begin: _topAlignmentAnimation.value,
-                end: _bottomAlignmentAnimation.value,
-              ),
+              color: Colors.black
+              // gradient: LinearGradient(
+              //   colors: const [
+              //     kMainColor,
+              //     thirdColor
+              //   ],
+              //   begin: _topAlignmentAnimation.value,
+              //   end: _bottomAlignmentAnimation.value,
+              // ),
             ),
             child: Center(
               child: Container(
                 height: SizeConfig.defaultSize! * 23,
-                width: SizeConfig.defaultSize! * 33,
+                width: SizeConfig.defaultSize! * 30,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/localfinderz-high-resolution-logo-white-transparent.png"),
                     fit: BoxFit.fitWidth,
                   ),
                   color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(15),
+                  // borderRadius: BorderRadius.circular(15.w),
                 ),
                                         
               ),

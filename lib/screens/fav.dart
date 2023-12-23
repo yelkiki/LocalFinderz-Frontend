@@ -16,7 +16,7 @@ class Favourite extends StatelessWidget {
           child: Text(
             "fav",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),

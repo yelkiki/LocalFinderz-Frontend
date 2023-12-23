@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, duplicate_ignore, unnecessary_string_interpolations
 
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'package:http/http.dart' as http;
@@ -40,21 +41,15 @@ class _ForgetPageState extends State<ForgetPassword>{
         ? List<String>.from(decodedBody['data'])
         : null;
     if (statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-      );
+      showToast(message: "$message");
       // hena redirect le page el verify token
       Navigator.pushNamed(context, "/verify");
     }else{
       if (errorMessages == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message')),
-          );
+          showToast(message: "$message");
         } else {
            final combinedErrors = errorMessages.join(', ');
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$message: $combinedErrors')),
-          );
+          showToast(message: "$combinedErrors");
           }
     }
   
