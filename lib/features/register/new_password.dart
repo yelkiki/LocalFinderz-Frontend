@@ -6,7 +6,7 @@ import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-// import 'verify.dart' as USER;
+
 
 class NewPassword extends StatefulWidget {
   const NewPassword({super.key});
@@ -25,7 +25,7 @@ class _NewPasswordState extends State<NewPassword> {
 
   Future<void> _newPassword(BuildContext context) async {
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/changePass');
-    final userID = ModalRoute.of(context)!.settings.arguments as int?;
+    final userID = ModalRoute.of(context)!.settings.arguments as int?; // gebto mel file elfat
     final response = await http.post(
       url,
       headers: <String, String>{ 
@@ -133,7 +133,6 @@ class _NewPasswordState extends State<NewPassword> {
                       children: [
                         
                         TextFormField(
-                          ///////// 5aleehom hidden da wel confirm
                           controller: passController,
                           textAlign: TextAlign.start,
                           obscureText: _obscureText1,
