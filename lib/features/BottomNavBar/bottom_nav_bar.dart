@@ -2,12 +2,11 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:local_finderzzz/screens/cart.dart';
-import 'package:local_finderzzz/screens/fav.dart';
-import 'package:local_finderzzz/screens/home.dart';
-import 'package:local_finderzzz/screens/info.dart';
-import 'package:local_finderzzz/screens/settings.dart';
+import 'package:local_finderzzz/screens/main_pages/cart.dart';
+import 'package:local_finderzzz/screens/main_pages/products.dart';
+import 'package:local_finderzzz/screens/main_pages/home.dart';
+import 'package:local_finderzzz/screens/main_pages/info.dart';
+import 'package:local_finderzzz/screens/main_pages/brands.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -29,9 +28,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> _pages = [    
     UserInfo(),
-    Favourite(),
+    Products(),
     HomePage(),
-    Settings(),
+    Brands(),
     Cart(),
   ];
 
@@ -63,7 +62,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
     
           Icon(
-            Icons.favorite,
+            Icons.shopping_basket,
             color: secondColor,
           ),
     
@@ -73,7 +72,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
     
           Icon(
-            Icons.settings,
+            Icons.shopping_bag,
             color: secondColor,
           ),
     

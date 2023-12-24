@@ -11,12 +11,18 @@ import 'package:local_finderzzz/features/register/signup.dart';
 import 'package:local_finderzzz/features/register/verify.dart';
 import 'package:local_finderzzz/features/register/welcome_screen.dart';
 import 'package:local_finderzzz/features/splash/splash_view.dart';
-import 'package:local_finderzzz/screens/admin.dart';
-import 'package:local_finderzzz/screens/cart.dart';
-import 'package:local_finderzzz/screens/fav.dart';
-import 'package:local_finderzzz/screens/home.dart';
-import 'package:local_finderzzz/screens/info.dart';
-import 'package:local_finderzzz/screens/settings.dart';
+import 'package:local_finderzzz/screens/main_pages/admin.dart';
+import 'package:local_finderzzz/screens/main_pages/cart.dart';
+import 'package:local_finderzzz/screens/categories/hoodies.dart';
+import 'package:local_finderzzz/screens/categories/pants.dart';
+import 'package:local_finderzzz/screens/categories/sets.dart';
+import 'package:local_finderzzz/screens/categories/tshirts.dart';
+import 'package:local_finderzzz/screens/main_pages/products.dart';
+import 'package:local_finderzzz/screens/main_pages/home.dart';
+import 'package:local_finderzzz/screens/main_pages/info.dart';
+import 'package:local_finderzzz/screens/main_pages/brands.dart';
+import 'package:local_finderzzz/screens/search/search_brands.dart';
+import 'package:local_finderzzz/screens/search/search_products.dart';
 
 
 void main() {
@@ -43,13 +49,19 @@ class MyApp extends StatelessWidget {
             '/forgetpass' : (context) => ForgetPassword(),
             '/verify' : (context) => const VerifyToken(),
             '/newpass' : (context) => const NewPassword(),
-            '/home' : (context) => const HomePage(),
+            '/home' : (context) =>  HomePage(),
             '/bottomNavBar' : (context) => const BottomNavBar(),
-            '/settings' : (context) => const Settings(),
+            '/brands' : (context) => Brands(),
             '/userInfo' : (context) => const UserInfo(),
             '/cart' : (context) => const Cart(),
-            '/fav' : (context) => const Favourite(),
+            '/products' : (context) =>  Products(),
             '/admin' : (context) => const AdminPage(),
+            '/tshirts' : (context) =>  Tshirts(),
+            '/pants' : (context) =>  Pants(),
+            '/sets' : (context) =>  Sets(),
+            '/hoodies' : (context) =>  Hoodies(),
+            '/searchProducts' : (context) => const SearchProducts(),
+            '/searchBrands' : (context) => const SearchBrands(),
           },
         );
       }

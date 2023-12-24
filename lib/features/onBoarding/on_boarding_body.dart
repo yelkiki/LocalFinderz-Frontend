@@ -75,7 +75,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                         ),
                         border: Border.all(
                           color: Colors.white,
-                          width: 2,
+                          width: 3,
                         )
                       
                       ),
