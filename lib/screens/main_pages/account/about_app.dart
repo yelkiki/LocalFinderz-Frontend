@@ -14,7 +14,7 @@ class AboutApp extends StatelessWidget {
       child: Scaffold(
 
         backgroundColor: Colors.transparent,
-        // extendBody: true,
+        // extendBody: true, 
         appBar: AppBar(
           title: Text(
             "A b o u t   A p p",
