@@ -18,13 +18,13 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
 
-  int _selectedIndex = 2;
+  final int _selectedIndex = 2;
 
-  void _navigateBottomBar (int index){
-    setState(() {
-      _selectedIndex = index;
-    }); 
-  }
+  // void _navigateBottomBar (int index){
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   }); 
+  // }
 
   final List<Widget> _pages = [    
     Profile(),
@@ -50,7 +50,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
         animationDuration: const Duration(milliseconds: 300),   
         height: 70,
         onTap:(index) {
-          _navigateBottomBar(index);
+          // _navigateBottomBar(index);
+          if (index == 0){
+            Navigator.pushNamed(context, "/profile");
+          }
+          else if (index == 1){
+            Navigator.pushNamed(context, "/products");
+          }else if (index == 2){
+            Navigator.pushNamed(context, "/home");
+          }else if (index == 3){
+            Navigator.pushNamed(context, "/brands");
+          }else if (index == 4){
+            Navigator.pushNamed(context, "/cart");
+          }
         },
         
         index: _selectedIndex,
