@@ -11,6 +11,10 @@ import 'package:local_finderzzz/features/register/signup.dart';
 import 'package:local_finderzzz/features/register/verify.dart';
 import 'package:local_finderzzz/features/register/welcome_screen.dart';
 import 'package:local_finderzzz/features/splash/splash_view.dart';
+import 'package:local_finderzzz/screens/main_pages/account/about_app.dart';
+import 'package:local_finderzzz/screens/main_pages/account/contact_us.dart';
+import 'package:local_finderzzz/screens/main_pages/account/orders.dart';
+import 'package:local_finderzzz/screens/main_pages/account/settings.dart';
 import 'package:local_finderzzz/screens/main_pages/admin.dart';
 import 'package:local_finderzzz/screens/main_pages/cart.dart';
 import 'package:local_finderzzz/screens/categories/hoodies.dart';
@@ -19,7 +23,7 @@ import 'package:local_finderzzz/screens/categories/sets.dart';
 import 'package:local_finderzzz/screens/categories/tshirts.dart';
 import 'package:local_finderzzz/screens/main_pages/products.dart';
 import 'package:local_finderzzz/screens/main_pages/home.dart';
-import 'package:local_finderzzz/screens/main_pages/info.dart';
+import 'package:local_finderzzz/screens/main_pages/profile.dart';
 import 'package:local_finderzzz/screens/main_pages/brands.dart';
 import 'package:local_finderzzz/screens/search/search_brands.dart';
 import 'package:local_finderzzz/screens/search/search_products.dart';
@@ -52,7 +56,7 @@ class MyApp extends StatelessWidget {
             '/home' : (context) =>  HomePage(),
             '/bottomNavBar' : (context) => const BottomNavBar(),
             '/brands' : (context) => Brands(),
-            '/userInfo' : (context) => const UserInfo(),
+            '/profile' : (context) => const Profile(),
             '/cart' : (context) => const Cart(),
             '/products' : (context) =>  Products(),
             '/admin' : (context) => const AdminPage(),
@@ -62,6 +66,10 @@ class MyApp extends StatelessWidget {
             '/hoodies' : (context) =>  Hoodies(),
             '/searchProducts' : (context) => const SearchProducts(),
             '/searchBrands' : (context) => const SearchBrands(),
+            '/aboutapp' : (context) => const AboutApp(),
+            '/settings' : (context) => const Settings(),
+            '/orders' : (context) => const Orders(),
+            '/contactus' : (context) => const ContactUs(),
           },
         );
       }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:local_finderzzz/screens/main_pages/cart.dart';
 import 'package:local_finderzzz/screens/main_pages/products.dart';
 import 'package:local_finderzzz/screens/main_pages/home.dart';
-import 'package:local_finderzzz/screens/main_pages/info.dart';
+import 'package:local_finderzzz/screens/main_pages/profile.dart';
 import 'package:local_finderzzz/screens/main_pages/brands.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 
@@ -27,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   final List<Widget> _pages = [    
-    UserInfo(),
+    Profile(),
     Products(),
     HomePage(),
     Brands(),
@@ -38,12 +38,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      extendBody: true,
+      
       // backgroundColor: Colors.transparent,
     
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        buttonBackgroundColor: Colors.black,
+        
+        buttonBackgroundColor: Colors.grey.shade600,
+        backgroundColor: Colors.black,
         color: Colors.black,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),   

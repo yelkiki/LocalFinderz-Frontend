@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 
-class Cart extends StatelessWidget {
-  const Cart({super.key});
+class ContactUs extends StatelessWidget {
+  const ContactUs({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Cart extends StatelessWidget {
         // extendBody: true,
         appBar: AppBar(
           title: Text(
-            "c a r t",
+            "C o n t a c t   u s",
             style: TextStyle(
               fontSize: 18.sp,
               fontFamily: "blacklisted",
@@ -27,7 +27,15 @@ class Cart extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.black,
           elevation: 1.h,
-          automaticallyImplyLeading: false,
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              
+            ),
+          ),
         ),
         
         body: Container(

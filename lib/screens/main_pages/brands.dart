@@ -8,7 +8,7 @@ import 'package:local_finderzzz/utils/widgets/constants.dart';
 class Brands extends StatelessWidget {
   Brands({super.key});
 
-  final List<String> items = List.generate(20, (index) => 'Item ${index + 1}');
+  final List<String> items = List.generate(20, (index) => 'Brand ${index + 1}');
 
   
 
@@ -55,40 +55,42 @@ class Brands extends StatelessWidget {
                 height: SizeConfig.defaultSize! * 2,
               ),
 
-              Container(
-                height: SizeConfig.defaultSize! * 5,
-                width: SizeConfig.defaultSize! * 30,
-                child: TextFormField(
-                  // controller: ,
-                  textAlign: TextAlign.start,                  
-                  decoration: InputDecoration(                   
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    hintText: "Search for brands",    
-                    hintStyle: TextStyle(
-                      fontSize: 13.sp,
-                      color: kMainColor,
-                      fontStyle: FontStyle.italic,
-                      // fontWeight: FontWeight.bold,                     
-                    ),                    
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: kMainColor,                                      
-                    ),         
-                    border: InputBorder.none,                    
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: kMainColor,
+              //// search bar 
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/searchBrands");
+                },
+                child: Container(
+                  height: SizeConfig.defaultSize! * 5,
+                  width: SizeConfig.defaultSize! * 30,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Row(
+                    children: [
+              
+                      SizedBox(
+                        width: SizeConfig.defaultSize,
                       ),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: thirdColor,
+              
+                      Icon(
+                        Icons.search,
                       ),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    
+              
+                      SizedBox(
+                        width: SizeConfig.defaultSize,
+                      ),
+              
+                      Text(
+                        "Search for brands",
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontSize: 12.sp,                               
+                        ),
+                      ),
+              
+                    ],
                   ),
                 ),
               ),

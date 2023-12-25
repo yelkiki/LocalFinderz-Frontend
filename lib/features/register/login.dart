@@ -21,8 +21,20 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  
+
   Future<void> _login(BuildContext context) async {
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/login');
+
+    // loading circle
+    // setState( () {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) {
+    //         return Center(child: CircularProgressIndicator());
+    //       }
+    //   );}
+    // );
 
     try {
       final response = await http.post(
@@ -36,6 +48,8 @@ class _LoginPageState extends State<LoginPage> {
         }),
       );
 
+
+
       final Map<String, dynamic> decodedBody = json.decode(response.body);
       final int? statusCode = decodedBody['statusCode'];
       final String? message = decodedBody['message'];
@@ -47,7 +61,15 @@ class _LoginPageState extends State<LoginPage> {
         final String? token = decodedBody['token'];
         ////// efteker el admin & user
         Navigator.pushNamed(context, "/bottomNavBar",arguments: token);
+
+
+        // // pop the loading circle
+        // setState(() {
+        //   Navigator.of(context).pop();
+        // });
+
         // Navigator.pushNamed(context, "/admin",arguments: token);
+        
       } else {
         if (errorMessages == null) {
           showToast(message: "$message");
@@ -60,6 +82,9 @@ class _LoginPageState extends State<LoginPage> {
     } catch (error) {
       showToast(message: "An error occured, please try again!");
     }
+
+    
+
   }
 //assets/images/glowing trash bag.png
 

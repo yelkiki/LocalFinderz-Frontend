@@ -157,7 +157,7 @@ class HomePage extends StatelessWidget {
                                 "Search for products",
                                 style: TextStyle(
                                   fontStyle: FontStyle.italic,
-                                  fontSize: 13.sp,                               
+                                  fontSize: 12.sp,                               
                                 ),
                               ),
                       
