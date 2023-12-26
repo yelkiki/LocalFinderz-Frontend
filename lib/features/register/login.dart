@@ -58,17 +58,14 @@ class _LoginPageState extends State<LoginPage> {
           : null;
 
       if (statusCode == 200) {
-        final String? token = "LFinders" + decodedBody['token'];
-        ////// efteker el admin & user
-        Navigator.pushNamed(context, "/bottomNavBar",arguments: token);
+        final int? role = decodedBody['role'];
+        print(role);
+        if (role == 1){
+          Navigator.pushNamed(context, "/bottomNavBar");
+        }else{
+          Navigator.pushNamed(context, "/admin");
+        }
 
-
-        // // pop the loading circle
-        // setState(() {
-        //   Navigator.of(context).pop();
-        // });
-
-        // Navigator.pushNamed(context, "/admin",arguments: token);
         
       } else {
         if (errorMessages == null) {
