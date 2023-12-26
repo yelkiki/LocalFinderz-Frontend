@@ -13,8 +13,7 @@ class AboutApp extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
 
-        backgroundColor: Colors.transparent,
-        // extendBody: true, 
+        
         appBar: AppBar(
           title: Text(
             "A b o u t   A p p",
@@ -25,7 +24,7 @@ class AboutApp extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          backgroundColor: Colors.black,
+          backgroundColor: kMainColor,
           elevation: 1.h,
           leading: GestureDetector(
             onTap: () {
@@ -42,20 +41,14 @@ class AboutApp extends StatelessWidget {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent,
           ),
 
           child: Center(
             child: Text(
               "Application  Description",
               style: TextStyle(
-                color: Colors.white,
+                color: kMainColor,
                 fontFamily: "blacklisted",
                 fontSize: 18.sp,
               ),

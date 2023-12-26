@@ -113,7 +113,7 @@ class HomePage extends StatelessWidget {
                   //     kMainColor,
                   //   ]
                   // ),
-                  color: thirdColor,
+                  color: Colors.transparent,
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(top: 30),

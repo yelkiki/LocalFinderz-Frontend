@@ -34,13 +34,7 @@ class Cart extends StatelessWidget {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent
           ),
         ),
 

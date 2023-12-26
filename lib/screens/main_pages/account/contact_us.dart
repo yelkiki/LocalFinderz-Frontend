@@ -13,8 +13,7 @@ class ContactUs extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
 
-        backgroundColor: Colors.transparent,
-        // extendBody: true,
+        
         appBar: AppBar(
           title: Text(
             "C o n t a c t   u s",
@@ -42,13 +41,7 @@ class ContactUs extends StatelessWidget {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent,
           ),
 
           child: Column(
@@ -68,7 +61,7 @@ class ContactUs extends StatelessWidget {
                   Text(
                     "Handaal",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kMainColor,
                       fontFamily: "blacklisted",
                       fontSize: 18.sp,
                     ),
@@ -81,7 +74,7 @@ class ContactUs extends StatelessWidget {
                   Text(
                     "01029196012",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kMainColor,
                       fontFamily: "blacklisted",
                       fontSize: 18.sp,
                     ),
@@ -103,7 +96,7 @@ class ContactUs extends StatelessWidget {
                   Text(
                     "Elkikiii",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kMainColor,
                       fontFamily: "blacklisted",
                       fontSize: 18.sp,
                     ),
@@ -116,7 +109,7 @@ class ContactUs extends StatelessWidget {
                   Text(
                     "01151816234",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kMainColor,
                       fontFamily: "blacklisted",
                       fontSize: 18.sp,
                     ),

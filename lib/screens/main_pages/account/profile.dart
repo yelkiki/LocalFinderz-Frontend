@@ -38,13 +38,7 @@ class Profile extends StatelessWidget {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent,
           ),
 
           child: Column(
@@ -66,8 +60,8 @@ class Profile extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -98,7 +92,7 @@ class Profile extends StatelessWidget {
                         child: Text(
                           "H a n d a a l",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -124,8 +118,8 @@ class Profile extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -137,7 +131,7 @@ class Profile extends StatelessWidget {
               
                       Icon(
                         Icons.book,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 3,
                       ),
               
@@ -149,7 +143,7 @@ class Profile extends StatelessWidget {
                         child: Text(
                           "Y o u r   o r d e r s",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -175,8 +169,8 @@ class Profile extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -188,7 +182,7 @@ class Profile extends StatelessWidget {
               
                       Icon(
                         Icons.phone,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 3,
                       ),
               
@@ -200,7 +194,7 @@ class Profile extends StatelessWidget {
                         child: Text(
                           "C o n t a c t   u s",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -226,8 +220,8 @@ class Profile extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -239,7 +233,7 @@ class Profile extends StatelessWidget {
               
                       Icon(
                         Icons.info,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 3,
                       ),
               
@@ -251,7 +245,7 @@ class Profile extends StatelessWidget {
                         child: Text(
                           "A b o u t   a p p",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),

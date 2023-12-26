@@ -17,13 +17,13 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
 
-  final int _selectedIndex = 2;
+  int _selectedIndex = 2;
 
-  // void _navigateBottomBar (int index){
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   }); 
-  // }
+  void _navigateBottomBar (int index){
+    setState(() {
+      _selectedIndex = index;
+    }); 
+  }
 
   final List<Widget> _pages = [    
     Profile(),
@@ -33,40 +33,53 @@ class _BottomNavBarState extends State<BottomNavBar> {
     Cart(),
   ];
 
+  GlobalKey<CurvedNavigationBarState>_curvednavigationkey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    final token = ModalRoute.of(context)!.settings.arguments as String?;
+    // final token = ModalRoute.of(context)!.settings.arguments as String?;
     return Scaffold(
       
       
       // backgroundColor: Colors.transparent,
+
+      extendBody: true,
     
       bottomNavigationBar: CurvedNavigationBar(
+
+        key: _curvednavigationkey,
         
-        buttonBackgroundColor: Colors.grey.shade600,
+        buttonBackgroundColor: kMainColor,
         backgroundColor: Colors.transparent,
-        color: Colors.black,
+        color: kMainColor,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),   
         height: 70,
         onTap:(index) {
-          // _navigateBottomBar(index);
-          if (index == 0){
-            Navigator.pushNamed(context, "/profile",arguments: token);
-          }
-          else if (index == 1){
-            Navigator.pushNamed(context, "/products",arguments: token);
-          }
-          else if (index == 2){
-            Navigator.pushNamed(context, "/home",arguments: token);
-          }
-          else if (index == 3){
-            Navigator.pushNamed(context, "/brands",arguments: token);
-          }
-          else if (index == 4){
-            Navigator.pushNamed(context, "/cart",arguments: token);
-          }
+          _navigateBottomBar(index);
+
+          // final CurvedNavigationBarState? navBarState = _curvednavigationkey.currentState;
+          // navBarState?.setPage(index);
+
+          // if (index == 0){
+          //   Navigator.pushNamed(context, "/profile",arguments: token);
+            
+          // }
+          // else if (index == 1){
+          //   Navigator.pushNamed(context, "/products",arguments: token);
+          // }
+          // else if (index == 2){
+          //   Navigator.pushNamed(context, "/home",arguments: token);
+          // }
+          // else if (index == 3){
+          //   Navigator.pushNamed(context, "/brands",arguments: token);
+          // }
+          // else if (index == 4){
+          //   Navigator.pushNamed(context, "/cart",arguments: token);
+          // }
         },
+
+        letIndexChange: (index) => true,
         
         index: _selectedIndex,
         

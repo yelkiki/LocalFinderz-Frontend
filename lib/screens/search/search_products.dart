@@ -205,13 +205,7 @@ class _SearchProductsState extends State<SearchProducts> {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ],
-            ),
+            color: Colors.black,
           ),
           child: Container(
             width: SizeConfig.defaultSize! * 35,

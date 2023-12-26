@@ -13,8 +13,7 @@ class Settings extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
 
-        backgroundColor: Colors.transparent,
-        // extendBody: true,
+       
         appBar: AppBar(
           title: Text(
             "S e t t i n g s",
@@ -42,13 +41,7 @@ class Settings extends StatelessWidget {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -69,8 +62,8 @@ class Settings extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -86,7 +79,7 @@ class Settings extends StatelessWidget {
                         child: Text(
                           "A c c o u n t   I n f o",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -99,7 +92,7 @@ class Settings extends StatelessWidget {
 
                       Icon(
                         Icons.keyboard_arrow_right,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 4,
                       ),
 
@@ -125,8 +118,8 @@ class Settings extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -142,7 +135,7 @@ class Settings extends StatelessWidget {
                         child: Text(
                           "S a v e d   A d d r e s s e s",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -155,7 +148,7 @@ class Settings extends StatelessWidget {
 
                       Icon(
                         Icons.keyboard_arrow_right,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 4,
                       ),
 
@@ -181,8 +174,8 @@ class Settings extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -198,7 +191,7 @@ class Settings extends StatelessWidget {
                         child: Text(
                           "C h a n g e   e-m a i l",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -211,7 +204,7 @@ class Settings extends StatelessWidget {
 
                       Icon(
                         Icons.keyboard_arrow_right,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 4,
                       ),
 
@@ -237,8 +230,8 @@ class Settings extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -254,7 +247,7 @@ class Settings extends StatelessWidget {
                         child: Text(
                           "C h a n g e   P a s s w o r d",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -267,7 +260,7 @@ class Settings extends StatelessWidget {
 
                       Icon(
                         Icons.keyboard_arrow_right,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 4,
                       ),
 
@@ -291,8 +284,8 @@ class Settings extends StatelessWidget {
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white,
-                      width: 1,
+                      color: kMainColor,
+                      width: 3,
                     )
                   ),
                   child: Row(
@@ -308,7 +301,7 @@ class Settings extends StatelessWidget {
                         child: Text(
                           "L o g   o u t",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kMainColor,
                             fontFamily: "blacklisted",
                             fontSize: 15.sp,                
                           ),
@@ -321,7 +314,7 @@ class Settings extends StatelessWidget {
 
                       Icon(
                         Icons.keyboard_arrow_right,
-                        color: Colors.white,
+                        color: kMainColor,
                         size: SizeConfig.defaultSize! * 4,
                       ),
 

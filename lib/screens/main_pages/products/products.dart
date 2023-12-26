@@ -117,8 +117,8 @@ class _ProductsState extends State<Products> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        // extendBody: true,
+        
+        extendBody: true,
 
         appBar: AppBar(
           title: Text(
@@ -140,13 +140,7 @@ class _ProductsState extends State<Products> {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent,
           ),
           child: Column(
 
@@ -165,8 +159,12 @@ class _ProductsState extends State<Products> {
                   height: SizeConfig.defaultSize! * 5,
                   width: SizeConfig.defaultSize! * 30,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: secondColor,
                     borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: kMainColor,
+                      width: 2,
+                    )
                   ),
                   child: Row(
                     children: [
@@ -211,9 +209,19 @@ class _ProductsState extends State<Products> {
                       mainAxisSpacing: 10.0,
                     ),
                     itemCount: items.length,
+
                     itemBuilder: (BuildContext context, int index) {
                       Product item = items[index];
                       return Card(
+                        color: secondColor,
+                        shadowColor: Colors.grey,
+                        shape: Border.all(
+                          color: kMainColor,
+                          width: 2,
+                          
+                        ),
+                        
+                        
                         child: InkWell(
                           onTap: () {
                             // Handle item tap
