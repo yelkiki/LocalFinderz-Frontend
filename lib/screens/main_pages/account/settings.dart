@@ -59,9 +59,9 @@ class Settings extends StatelessWidget {
               ),
 
               GestureDetector(
-                // onTap: () {
-                //   Navigator.pushNamed(context, "/userinfo");
-                // },
+                onTap: () {
+                  Navigator.pushNamed(context, "/accountinfo");
+                },
                 child: Container(
                   height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 40,

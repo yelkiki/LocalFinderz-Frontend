@@ -50,6 +50,17 @@ class AboutApp extends StatelessWidget {
               ]
             ),
           ),
+
+          child: Center(
+            child: Text(
+              "Application  Description",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: "blacklisted",
+                fontSize: 18.sp,
+              ),
+            ),
+          ),
         ),
 
 

@@ -50,6 +50,81 @@ class ContactUs extends StatelessWidget {
               ]
             ),
           ),
+
+          child: Column(
+            children: [
+
+              SizedBox(
+                height: SizeConfig.defaultSize! * 10,
+              ),
+
+              Row(
+                children: [
+
+                  SizedBox(
+                    width: SizeConfig.defaultSize! * 2,
+                  ),
+
+                  Text(
+                    "Handaal",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "blacklisted",
+                      fontSize: 18.sp,
+                    ),
+                  ),
+
+                  SizedBox(
+                    width: SizeConfig.defaultSize! * 2,
+                  ),
+
+                  Text(
+                    "01029196012",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "blacklisted",
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(
+                height: SizeConfig.defaultSize! * 5,
+              ),
+
+              Row(
+                children: [
+
+                  SizedBox(
+                    width: SizeConfig.defaultSize! * 2,
+                  ),
+
+                  Text(
+                    "Elkikiii",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "blacklisted",
+                      fontSize: 18.sp,
+                    ),
+                  ),
+
+                  SizedBox(
+                    width: SizeConfig.defaultSize! * 4,
+                  ),
+
+                  Text(
+                    "01151816234",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: "blacklisted",
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
 
 

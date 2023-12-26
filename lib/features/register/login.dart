@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
           : null;
 
       if (statusCode == 200) {
-        final String? token = decodedBody['token'];
+        final String? token = "LFinders" + decodedBody['token'];
         ////// efteker el admin & user
         Navigator.pushNamed(context, "/bottomNavBar",arguments: token);
 

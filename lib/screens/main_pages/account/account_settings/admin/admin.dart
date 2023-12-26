@@ -27,17 +27,13 @@ class _AdminPageState extends State<AdminPage> {
               fontFamily: "blacklisted"
             ),
           ),
+          automaticallyImplyLeading: false,
           elevation: 2.0.h,
           toolbarHeight: SizeConfig.defaultSize! * 7,
           centerTitle: true,
           flexibleSpace: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: const [
-                  kMainColor,
-                  thirdColor,
-                ]
-              ),
+              color: kMainColor,
             ),
           ),
         ),
@@ -46,12 +42,7 @@ class _AdminPageState extends State<AdminPage> {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-              ]
-            ),
+            color: kMainColor,
           ),
           child: Column(
             children: [
@@ -62,7 +53,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  /////////////////////////////
+                  Navigator.pushNamed(context, "/addbrand");
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -128,7 +119,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  /////////////////////////////
+                  Navigator.pushNamed(context, "/addproduct");
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -209,7 +200,7 @@ class _AdminPageState extends State<AdminPage> {
                           
                   child: Center(
                     child: Text(
-                      "upddate quantity",
+                      "update quantity",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontFamily: "blacklisted",

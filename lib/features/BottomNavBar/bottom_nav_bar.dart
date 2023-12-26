@@ -11,7 +11,6 @@ import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
-
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
@@ -36,6 +35,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    final token = ModalRoute.of(context)!.settings.arguments as String?;
     return Scaffold(
       
       
@@ -52,16 +52,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
         onTap:(index) {
           // _navigateBottomBar(index);
           if (index == 0){
-            Navigator.pushNamed(context, "/profile");
+            Navigator.pushNamed(context, "/profile",arguments: token);
           }
           else if (index == 1){
-            Navigator.pushNamed(context, "/products");
-          }else if (index == 2){
-            Navigator.pushNamed(context, "/home");
-          }else if (index == 3){
-            Navigator.pushNamed(context, "/brands");
-          }else if (index == 4){
-            Navigator.pushNamed(context, "/cart");
+            Navigator.pushNamed(context, "/products",arguments: token);
+          }
+          else if (index == 2){
+            Navigator.pushNamed(context, "/home",arguments: token);
+          }
+          else if (index == 3){
+            Navigator.pushNamed(context, "/brands",arguments: token);
+          }
+          else if (index == 4){
+            Navigator.pushNamed(context, "/cart",arguments: token);
           }
         },
         

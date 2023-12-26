@@ -82,13 +82,7 @@ class HomePage extends StatelessWidget {
                 background: Container(                  
                   decoration: BoxDecoration(
                     // borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
-                    gradient: LinearGradient(
-                      colors: const [
-                        kMainColor,
-                        thirdColor,
-                        kMainColor,
-                      ]
-                    ),
+                    color: kMainColor,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 55, bottom: 20),
@@ -112,14 +106,14 @@ class HomePage extends StatelessWidget {
                 height: SizeConfig.screenHeight,
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: const [
-                      kMainColor,
-                      thirdColor,
-                      kMainColor,
-                    ]
-                  ),
-                  // color: Colors.black
+                  // gradient: LinearGradient(
+                  //   colors: const [
+                  //     kMainColor,
+                  //     thirdColor,
+                  //     kMainColor,
+                  //   ]
+                  // ),
+                  color: thirdColor,
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(top: 30),
@@ -135,8 +129,12 @@ class HomePage extends StatelessWidget {
                           height: SizeConfig.defaultSize! * 5,
                           width: SizeConfig.defaultSize! * 30,
                           decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
+                            color: secondColor,
                             borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                              color: kMainColor,
+                              width: 2,
+                            )
                           ),
                           child: Row(
                             children: [
@@ -194,6 +192,10 @@ class HomePage extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: kMainColor,
+                                        width: 2,
+                                      ),
                                       image: DecorationImage(
                                         image: AssetImage("assets/images/Black_Tshirt.png"),
                                         fit: BoxFit.fitWidth
@@ -205,7 +207,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   "T-S H I R T S",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: kMainColor,
                                     fontFamily: "blacklisted",
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12.sp

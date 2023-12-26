@@ -12,10 +12,13 @@ import 'package:local_finderzzz/features/register/verify.dart';
 import 'package:local_finderzzz/features/register/welcome_screen.dart';
 import 'package:local_finderzzz/features/splash/splash_view.dart';
 import 'package:local_finderzzz/screens/main_pages/account/about_app.dart';
+import 'package:local_finderzzz/screens/main_pages/account/account_settings/account_info.dart';
+import 'package:local_finderzzz/screens/main_pages/account/account_settings/admin/add_brand.dart';
+import 'package:local_finderzzz/screens/main_pages/account/account_settings/admin/add_product.dart';
 import 'package:local_finderzzz/screens/main_pages/account/contact_us.dart';
 import 'package:local_finderzzz/screens/main_pages/account/orders.dart';
 import 'package:local_finderzzz/screens/main_pages/account/settings.dart';
-import 'package:local_finderzzz/screens/main_pages/admin.dart';
+import 'package:local_finderzzz/screens/main_pages/account/account_settings/admin/admin.dart';
 import 'package:local_finderzzz/screens/main_pages/brand_view.dart';
 import 'package:local_finderzzz/screens/main_pages/cart.dart';
 import 'package:local_finderzzz/screens/categories/hoodies.dart';
@@ -74,6 +77,9 @@ class MyApp extends StatelessWidget {
             '/contactus' : (context) => const ContactUs(),
             '/productview' : (context) => const ProductView(),
             '/brandview' : (context) => const BrandView(),
+            '/accountinfo' : (context) => const AccountInfo(),
+            '/addproduct' : (context) => AddProduct(),
+            '/addbrand' : (context) => AddBrand(),
           },
         );
       }
