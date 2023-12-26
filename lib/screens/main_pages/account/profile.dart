@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_finderzzz/features/BottomNavBar/bottom_nav_bar.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 
@@ -32,6 +33,7 @@ class Profile extends StatelessWidget {
           automaticallyImplyLeading: false,
         ),
 
+        
         body: Container(
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,

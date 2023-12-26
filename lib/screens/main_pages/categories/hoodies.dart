@@ -55,48 +55,6 @@ class Hoodies extends StatelessWidget {
 
             children: [
 
-              // SizedBox(
-              //   height: SizeConfig.defaultSize! * 2,
-              // ),
-
-              // Container(
-              //   height: SizeConfig.defaultSize! * 5,
-              //   width: SizeConfig.defaultSize! * 30,
-              //   child: TextFormField(
-              //       // controller: ,
-              //       textAlign: TextAlign.start,                  
-              //       decoration: InputDecoration(                   
-              //         filled: true,
-              //         fillColor: Colors.grey.shade100,
-              //         hintText: "Search all products",    
-              //         hintStyle: TextStyle(
-              //           fontSize: 13.sp,
-              //           color: kMainColor,
-              //           fontStyle: FontStyle.italic,
-              //           // fontWeight: FontWeight.bold,                     
-              //         ),                    
-              //         prefixIcon: Icon(
-              //           Icons.search,
-              //           color: kMainColor,                                      
-              //         ),         
-              //         border: InputBorder.none,                    
-              //         enabledBorder: OutlineInputBorder(
-              //           borderSide: BorderSide(
-              //             color: kMainColor,
-              //           ),
-              //           borderRadius: BorderRadius.circular(30),
-              //         ),
-              //         focusedBorder: OutlineInputBorder(
-              //           borderSide: BorderSide(
-              //             color: thirdColor,
-              //           ),
-              //           borderRadius: BorderRadius.circular(30),
-              //         ),
-                      
-              //       ),
-              //     ),
-              // ),
-
               SizedBox(
                 height: SizeConfig.defaultSize! * 2,
               ),

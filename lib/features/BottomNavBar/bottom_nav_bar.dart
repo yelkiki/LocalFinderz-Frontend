@@ -2,11 +2,11 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:local_finderzzz/screens/main_pages/cart.dart';
-import 'package:local_finderzzz/screens/main_pages/products.dart';
+import 'package:local_finderzzz/screens/main_pages/cart/cart.dart';
+import 'package:local_finderzzz/screens/main_pages/products/products.dart';
 import 'package:local_finderzzz/screens/main_pages/home.dart';
-import 'package:local_finderzzz/screens/main_pages/profile.dart';
-import 'package:local_finderzzz/screens/main_pages/brands.dart';
+import 'package:local_finderzzz/screens/main_pages/account/profile.dart';
+import 'package:local_finderzzz/screens/main_pages/brands/brands.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -44,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       bottomNavigationBar: CurvedNavigationBar(
         
         buttonBackgroundColor: Colors.grey.shade600,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         color: Colors.black,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),   

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:local_finderzzz/screens/main_pages/filter_items.dart';
+import 'package:local_finderzzz/screens/search/filter_items.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'package:popover/popover.dart';
