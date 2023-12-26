@@ -1,16 +1,85 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, non_constant_identifier_names, prefer_const_constructors_in_immutables
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
+import 'package:http/http.dart' as http;
 
-class Brands extends StatelessWidget {
+
+
+class Brand {
+  final int id;
+  final String name;
+
+  Brand({required this.id,required this.name});
+}
+
+List<Brand> parseBrands(List<Map<String, dynamic>> brandList) {
+  return brandList.map((data) {
+    return Brand(
+      id: data['id'] as int,
+      name: data['name'] as String,
+);
+}).toList();
+}
+
+class Brands extends StatefulWidget {
   Brands({super.key});
 
-  final List<String> items = List.generate(20, (index) => 'Brand ${index + 1}');
+  @override
+  State<Brands> createState() => _BrandsState();
+}
 
+class _BrandsState extends State<Brands> {
+  List<Brand> items = [];
+
+   @override
+  void initState() {
+    super.initState();
+    _DisplayBrands(context);
+  }
+
+ Future<void> _DisplayBrands(BuildContext context) async {
+  final Uri url = Uri.parse('http://10.0.2.2:3000/product/brands');
+
+  final response = await http.get(
+    url,
+    headers: <String, String>{ 
+      'Content-Type': 'application/json; charset=UTF-8',
+      // "authorization":token!, 
+    }, 
+  );
+
+  final Map<String, dynamic> decodedBody = json.decode(response.body);
+  final int? statusCode = decodedBody['statusCode'];
+  final String? message = decodedBody['message'];
   
+  // Check if 'data' key exists and if it's a non-null list
+  if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
+    final List<Map<String, dynamic>> fetchedItems =
+      List<Map<String, dynamic>>.from(decodedBody['data']);
+
+    if (statusCode == 200) {
+      setState(() {
+        items = parseBrands(fetchedItems);
+      });
+      // showToast(message: "$message");
+    } else {
+      showToast(message: "Error $message");
+    }
+  } else {
+    showToast(message: "Invalid data received");
+  }
+}
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +174,7 @@ class Brands extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: items.length,
                     itemBuilder: (BuildContext context, int index) {
+                      Brand item = items[index];
                       return Container(
                         height: SizeConfig.defaultSize! * 15,
                         
@@ -119,7 +189,7 @@ class Brands extends StatelessWidget {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          items[index],
+                          item.name,
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       );
