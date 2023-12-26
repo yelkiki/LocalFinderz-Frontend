@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
             SliverToBoxAdapter(
               
               child: Container(
-                height: SizeConfig.screenHeight,
+                height: SizeConfig.defaultSize! * 25,
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
                   // gradient: LinearGradient(
@@ -342,6 +342,8 @@ class HomePage extends StatelessWidget {
 
                       
                       ////////////////////////////////////// hena el brands
+                      ///
+                      
                                             
                       
                       
@@ -351,6 +353,141 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+
+            SliverToBoxAdapter(
+                        child: Container(
+                          height: SizeConfig.screenHeight,
+                          child: Expanded(
+                            
+                            child: Column(
+                              children: [
+                            
+                                Container(
+                                  height: SizeConfig.defaultSize! * 15,
+                                  width: SizeConfig.defaultSize! * 35,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(4.0.h, 4.0.w),
+                                        blurRadius: 15.0.w,
+                                        spreadRadius: 1.0.w,
+                                      )
+                                    ],
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/el-arzaa2-bellaah-high-resolution-logo5.png"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                            
+                                SizedBox(
+                                  height: SizeConfig.defaultSize! * 5,
+                                ),
+                            
+                            
+                                Container(
+                                  height: SizeConfig.defaultSize! * 15,
+                                  width: SizeConfig.defaultSize! * 35,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(4.0.h, 4.0.w),
+                                        blurRadius: 15.0.w,
+                                        spreadRadius: 1.0.w,
+                                      )
+                                    ],
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/el7erafyeen-high-resolution-logo3.png"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                            
+                                SizedBox(
+                                  height: SizeConfig.defaultSize! * 5,
+                                ),
+                            
+                            
+                                Container(
+                                  height: SizeConfig.defaultSize! * 15,
+                                  width: SizeConfig.defaultSize! * 35,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(4.0.h, 4.0.w),
+                                        blurRadius: 15.0.w,
+                                        spreadRadius: 1.0.w,
+                                      )
+                                    ],
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/el-arzaa2-bellaah-high-resolution-logo2.png"),
+                                      fit: BoxFit.cover,
+                                    ),
+                            
+                                  ),
+                                ),
+                            
+                                SizedBox(
+                                  height: SizeConfig.defaultSize! * 5,
+                                ),
+                            
+                            
+                                Container(
+                                  height: SizeConfig.defaultSize! * 15,
+                                  width: SizeConfig.defaultSize! * 35,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(4.0.h, 4.0.w),
+                                        blurRadius: 15.0.w,
+                                        spreadRadius: 1.0.w,
+                                      )
+                                    ],
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/logo-color.png"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                            
+                                SizedBox(
+                                  height: SizeConfig.defaultSize! * 5,
+                                ),
+                            
+                            
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
 
             
 

@@ -252,22 +252,22 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
 
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, "/bottomNavBar");
-                            },
-                            child: Text(
-                              "skip",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15.sp,
-                                color: redColor,
-                              ),
-                            ),
-                          ),
-                        ),
+                        // Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: GestureDetector(
+                        //     onTap: () {
+                        //       Navigator.pushNamed(context, "/bottomNavBar");
+                        //     },
+                        //     child: Text(
+                        //       "skip",
+                        //       style: TextStyle(
+                        //         fontWeight: FontWeight.bold,
+                        //         fontSize: 15.sp,
+                        //         color: redColor,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                               
                         SizedBox(
                           height: SizeConfig.defaultSize! * 4,

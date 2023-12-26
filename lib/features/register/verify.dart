@@ -35,23 +35,17 @@ class _VerifyTokenState extends State<VerifyToken> {
     final Map<String, dynamic> decodedBody = json.decode(response.body);
     final int? statusCode = decodedBody['statusCode'];
     final String? message = decodedBody['message'];
-    
+    print(statusCode);
+    print(message);
     if (statusCode == 200) {
       showToast(message: "$message");
       final int? USERID = decodedBody['data'];
+      print(USERID);
       // eb3at el data lel page elgya
       Navigator.pushNamed(context, "/newpass",arguments: USERID);
       
     }else{
-      final List<dynamic>? data = decodedBody['data'] != null
-          ? List<String>.from(decodedBody['data'])
-          : null;
-      if (data == null) {
-          showToast(message: "$message");
-        } else {
-           final combinedErrors = data.join(', ');
-          showToast(message: "$combinedErrors");
-          }
+      showToast(message: "Invalid Token");
     }
   }
 
