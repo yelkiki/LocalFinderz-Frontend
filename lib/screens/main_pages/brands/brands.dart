@@ -85,8 +85,8 @@ class _BrandsState extends State<Brands> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        // extendBody: true,
+        
+        extendBody: true,
 
         appBar: AppBar(
           title: Text(
@@ -108,13 +108,7 @@ class _BrandsState extends State<Brands> {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
-            ),
+            color: Colors.transparent
           ),
           child: Column(
 
@@ -133,8 +127,12 @@ class _BrandsState extends State<Brands> {
                   height: SizeConfig.defaultSize! * 5,
                   width: SizeConfig.defaultSize! * 30,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: secondColor,
                     borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: kMainColor,
+                      width: 2,
+                    )
                   ),
                   child: Row(
                     children: [
@@ -183,14 +181,19 @@ class _BrandsState extends State<Brands> {
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: Colors.white,
+                            color: kMainColor,
                             width: 3,
                           ),
                         ),
                         alignment: Alignment.center,
                         child: Text(
                           item.name,
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          style: TextStyle(
+                            color: redColor,
+                            fontSize: 18.sp,
+                            fontFamily: "blacklisted",
+
+                          ),
                         ),
                       );
                     },

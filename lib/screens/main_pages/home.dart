@@ -191,7 +191,7 @@ class HomePage extends StatelessWidget {
                                     width: SizeConfig.defaultSize! * 6,
                                     decoration: BoxDecoration(
                                       color: Colors.black,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(15),
                                       border: Border.all(
                                         color: kMainColor,
                                         width: 2,
@@ -230,7 +230,11 @@ class HomePage extends StatelessWidget {
                                     width: SizeConfig.defaultSize! * 6,
                                     decoration: BoxDecoration(
                                       color: Colors.black,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(
+                                        color: kMainColor,
+                                        width: 2,
+                                      ),
                                       image: DecorationImage(
                                         image: AssetImage("assets/images/Black_pants.png"),
                                         fit: BoxFit.fitWidth
@@ -242,7 +246,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   "P A N T S",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: kMainColor,
                                     fontFamily: "blacklisted",
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12.sp
@@ -266,7 +270,11 @@ class HomePage extends StatelessWidget {
                                     width: SizeConfig.defaultSize! * 6,
                                     decoration: BoxDecoration(
                                       color: Colors.black,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(
+                                        color: kMainColor,
+                                        width: 2,
+                                      ),
                                       image: DecorationImage(
                                         image: AssetImage("assets/images/Black_Set.png"),
                                         fit: BoxFit.fitWidth
@@ -278,7 +286,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   "S E T S",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: kMainColor,
                                     fontFamily: "blacklisted",
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12.sp
@@ -301,7 +309,11 @@ class HomePage extends StatelessWidget {
                                     width: SizeConfig.defaultSize! * 6,
                                     decoration: BoxDecoration(
                                       color: Colors.transparent,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(
+                                        color: kMainColor,
+                                        width: 2,
+                                      ),
                                       image: DecorationImage(
                                         image: AssetImage("assets/images/Black_Hoodie.png"),
                                         fit: BoxFit.fitWidth
@@ -313,7 +325,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   "H O O D I E S",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: kMainColor,
                                     fontFamily: "blacklisted",
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12.sp

@@ -172,13 +172,13 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: thirdColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -204,7 +204,7 @@ class _LoginPageState extends State<LoginPage> {
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _obscureText ? Icons.visibility_off : Icons.visibility,
-                                color: _obscureText ? kMainColor : thirdColor,
+                                color: _obscureText ? kMainColor : redColor,
                               ),
                               
                               onPressed: () {
@@ -221,13 +221,13 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: thirdColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -266,7 +266,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15.sp,
-                                color: thirdColor,
+                                color: redColor,
                               ),
                             ),
                           ),
@@ -292,10 +292,13 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(30),
                               gradient: const LinearGradient(
                                 colors: [
-                                  kMainColor,
-                                  thirdColor,
+                                  eswed,
+                                  redColor,
                                 ]
                               ),
+                              border: Border.all(
+                                color: secondColor
+                              )
                             ),
                                     
                             child: Center(
@@ -342,7 +345,7 @@ class _LoginPageState extends State<LoginPage> {
                                 style: TextStyle(///done login page
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.sp,
-                                  color: thirdColor,
+                                  color: redColor,
                                 ),
                               ),
                             ),

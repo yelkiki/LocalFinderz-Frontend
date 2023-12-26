@@ -184,7 +184,7 @@ class _SearchProductsState extends State<SearchProducts> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: thirdColor,
+                        color: redColor,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(30),

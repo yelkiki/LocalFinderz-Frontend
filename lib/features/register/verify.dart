@@ -81,8 +81,8 @@ class _VerifyTokenState extends State<VerifyToken> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: const [
-                  kMainColor,
-                  thirdColor,
+                  eswed,
+                  redColor,
                 ]
               ),
             ),
@@ -98,8 +98,8 @@ class _VerifyTokenState extends State<VerifyToken> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: const [
-                    kMainColor,
-                    thirdColor,
+                    eswed,
+                    redColor,
                   ]
                 ),
               ),
@@ -150,13 +150,13 @@ class _VerifyTokenState extends State<VerifyToken> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: firstColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -182,10 +182,13 @@ class _VerifyTokenState extends State<VerifyToken> {
                               borderRadius: BorderRadius.circular(30),
                               gradient: const LinearGradient(
                                 colors: [
-                                  kMainColor,
-                                  thirdColor,
+                                  eswed,
+                                  redColor,
                                 ]
                               ),
+                              border: Border.all(
+                                color: secondColor,
+                              )
                             ),
                                     
                             child: Center(

@@ -36,6 +36,16 @@ class Cart extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.transparent
           ),
+          child: Center(
+            child: Text(
+              "Cart",
+              style: TextStyle(
+                fontFamily: "blacklisted",
+                fontSize: 18.sp,
+                
+              ),
+            ),
+          ),
         ),
 
 

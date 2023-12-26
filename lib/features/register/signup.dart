@@ -91,8 +91,8 @@ class _SignUpPageState extends State<SignUpPage> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    kMainColor,
-                    thirdColor,
+                    eswed,
+                    redColor,
                   ]
                 ),
               ),
@@ -173,13 +173,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: thirdColor,
+                                      color: redColor,
                                     ),
                                     borderRadius: BorderRadius.circular(12.w),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.red,
+                                      color: redColor,
                                     ),
                                     borderRadius: BorderRadius.circular(12.w),
                                   ),
@@ -213,13 +213,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: thirdColor,
+                                      color: redColor,
                                     ),
                                     borderRadius: BorderRadius.circular(12.w),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.red,
+                                      color: redColor,
                                     ),
                                     borderRadius: BorderRadius.circular(12.w),
                                   ),
@@ -262,13 +262,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: thirdColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
@@ -308,13 +308,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: thirdColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
@@ -344,7 +344,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _obscureText1 ? Icons.visibility_off : Icons.visibility,
-                                color: _obscureText1 ? kMainColor : thirdColor,
+                                color: _obscureText1 ? kMainColor : redColor,
                               ),
                               
                               onPressed: () {
@@ -361,13 +361,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: thirdColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
@@ -396,7 +396,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _obscureText2 ? Icons.visibility_off : Icons.visibility,
-                                color: _obscureText2 ? kMainColor : thirdColor,
+                                color: _obscureText2 ? kMainColor : redColor,
                               ),
                               
                               onPressed: () {
@@ -413,13 +413,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: thirdColor,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red,
+                                color: redColor,
                               ),
                               borderRadius: BorderRadius.circular(12.w),
                             ),
@@ -444,10 +444,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             borderRadius: BorderRadius.circular(30.w),
                             gradient: const LinearGradient(
                               colors: [
-                                kMainColor,
-                                thirdColor,
+                                eswed,
+                                redColor,
                               ]
                             ),
+                            border: Border.all(
+                              color: secondColor,
+                            )
                           ),
                                   
                           child: Center(
@@ -494,7 +497,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.sp,
-                                color: thirdColor,
+                                color: redColor,
                               ),
                             ),
                           ),

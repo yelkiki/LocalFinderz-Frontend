@@ -144,13 +144,7 @@ class _TshirtsState extends State<Tshirts> {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ],
-            ),
+            color: Colors.transparent
           ),
           child: Container(
             width: SizeConfig.defaultSize! * 35,
@@ -164,6 +158,10 @@ class _TshirtsState extends State<Tshirts> {
               itemBuilder: (BuildContext context, int index) {
                 Product item = items[index];
                 return Card(
+                  shape: Border.all(
+                    color: kMainColor,
+                    width: 2,
+                  ),
                   child: InkWell(
                     onTap: () {
                       // Handle item tap

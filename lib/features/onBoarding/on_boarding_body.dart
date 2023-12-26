@@ -69,8 +69,8 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                         borderRadius: BorderRadius.circular(25.w),
                         gradient: const LinearGradient(
                           colors: [
-                            kMainColor,
-                            thirdColor,
+                            eswed,
+                            redColor,
                           ]
                         ),
                         border: Border.all(
