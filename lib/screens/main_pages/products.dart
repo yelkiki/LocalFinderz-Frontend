@@ -99,7 +99,7 @@ class _ProductsState extends State<Products> {
       setState(() {
         items = parseProducts(fetchedItems);
       });
-      showToast(message: "$message");
+      // showToast(message: "$message");
     } else {
       showToast(message: "Error $message");
     }
