@@ -118,6 +118,7 @@ class Products extends StatelessWidget {
                             title: Text(items[index]),
                             onTap: () {
                               // Handle item tap
+                              
                               print('Tapped on: ${items[index]}');
                             },
                           ),

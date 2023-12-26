@@ -16,11 +16,13 @@ import 'package:local_finderzzz/screens/main_pages/account/contact_us.dart';
 import 'package:local_finderzzz/screens/main_pages/account/orders.dart';
 import 'package:local_finderzzz/screens/main_pages/account/settings.dart';
 import 'package:local_finderzzz/screens/main_pages/admin.dart';
+import 'package:local_finderzzz/screens/main_pages/brand_view.dart';
 import 'package:local_finderzzz/screens/main_pages/cart.dart';
 import 'package:local_finderzzz/screens/categories/hoodies.dart';
 import 'package:local_finderzzz/screens/categories/pants.dart';
 import 'package:local_finderzzz/screens/categories/sets.dart';
 import 'package:local_finderzzz/screens/categories/tshirts.dart';
+import 'package:local_finderzzz/screens/main_pages/product_view.dart';
 import 'package:local_finderzzz/screens/main_pages/products.dart';
 import 'package:local_finderzzz/screens/main_pages/home.dart';
 import 'package:local_finderzzz/screens/main_pages/profile.dart';
@@ -70,6 +72,8 @@ class MyApp extends StatelessWidget {
             '/settings' : (context) => const Settings(),
             '/orders' : (context) => const Orders(),
             '/contactus' : (context) => const ContactUs(),
+            '/productview' : (context) => const ProductView(),
+            '/brandview' : (context) => const BrandView(),
           },
         );
       }
