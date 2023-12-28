@@ -46,21 +46,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
       extendBody: true,
     
       bottomNavigationBar: CurvedNavigationBar(
-
+      
         key: _curvednavigationkey,
         
         buttonBackgroundColor: kMainColor,
         backgroundColor: Colors.transparent,
+        
         color: kMainColor,
+        
+        
         animationCurve: Curves.easeInOut,
+      
         animationDuration: const Duration(milliseconds: 300),   
         height: 70,
         onTap:(index) {
           _navigateBottomBar(index);
-
+      
           // final CurvedNavigationBarState? navBarState = _curvednavigationkey.currentState;
           // navBarState?.setPage(index);
-
+      
           // if (index == 0){
           //   Navigator.pushNamed(context, "/profile",arguments: token);
             
@@ -78,7 +82,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           //   Navigator.pushNamed(context, "/cart",arguments: token);
           // }
         },
-
+        
+      
         letIndexChange: (index) => true,
         
         index: _selectedIndex,
@@ -89,27 +94,27 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Icons.person,
             color: secondColor,                  
           ),
-    
+        
           Icon(
             Icons.shopping_basket,
             color: secondColor,
           ),
-    
+        
           Icon(
             Icons.home,
             color: secondColor,
           ),
-    
+        
           Icon(
             Icons.shopping_bag,
             color: secondColor,
           ),
-    
+        
           Icon(
             Icons.shopping_cart,
             color: secondColor,
           ),
-    
+        
         ],
         
       ),

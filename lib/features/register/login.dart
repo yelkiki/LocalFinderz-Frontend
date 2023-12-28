@@ -20,10 +20,16 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool _isLoading = false; // Track loading state
 
   
 
   Future<void> _login(BuildContext context) async {
+
+    setState(() {
+      _isLoading = true; // Set loading state to true when reset password starts
+    });
+
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/login');
 
     // loading circle
@@ -80,7 +86,9 @@ class _LoginPageState extends State<LoginPage> {
       showToast(message: "An error occured, please try again!");
     }
 
-    
+    setState(() {
+      _isLoading = false; // Set loading state to false after password reset process
+    });
 
   }
 //assets/images/glowing trash bag.png
@@ -354,6 +362,22 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
+            if (_isLoading)
+              Expanded(
+                child: Container(
+                  height: SizeConfig.screenHeight,
+                  width: SizeConfig.screenWidth,
+                  color: Colors.grey.withOpacity(0.5),
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      // Show loading indicator if _isLoading is true
+                      valueColor: AlwaysStoppedAnimation<Color>(eswed),
+                    ),
+                  ),
+                ),
+              ), 
+
           ],
         )
       ),

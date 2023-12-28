@@ -47,6 +47,7 @@ class _SignUpPageState extends State<SignUpPage> {
           'password': passwordController.text,
           'cPassword': cPasswordController.text,
           'phone': phoneController.text,
+          "address": "ciuskc",
         }),
       );
 
@@ -59,6 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
       if (statusCode == 200) {
         showToast(message: "$message");
+        Navigator.pushNamed(context, "/login");
       } else {
         if (errorMessages == null) {
           showToast(message: "$message");

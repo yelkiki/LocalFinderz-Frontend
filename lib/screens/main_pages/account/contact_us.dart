@@ -48,14 +48,14 @@ class ContactUs extends StatelessWidget {
             children: [
 
               SizedBox(
-                height: SizeConfig.defaultSize! * 10,
+                height: SizeConfig.defaultSize! * 20,
               ),
 
               Row(
                 children: [
 
                   SizedBox(
-                    width: SizeConfig.defaultSize! * 2,
+                    width: SizeConfig.defaultSize! * 5,
                   ),
 
                   Text(
@@ -90,7 +90,7 @@ class ContactUs extends StatelessWidget {
                 children: [
 
                   SizedBox(
-                    width: SizeConfig.defaultSize! * 2,
+                    width: SizeConfig.defaultSize! * 5,
                   ),
 
                   Text(
@@ -108,6 +108,41 @@ class ContactUs extends StatelessWidget {
 
                   Text(
                     "01151816234",
+                    style: TextStyle(
+                      color: kMainColor,
+                      fontFamily: "blacklisted",
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(
+                height: SizeConfig.defaultSize! * 5,
+              ),
+
+              Row(
+                children: [
+
+                  SizedBox(
+                    width: SizeConfig.defaultSize! * 5,
+                  ),
+
+                  Text(
+                    "Kemiii",
+                    style: TextStyle(
+                      color: kMainColor,
+                      fontFamily: "blacklisted",
+                      fontSize: 18.sp,
+                    ),
+                  ),
+
+                  SizedBox(
+                    width: SizeConfig.defaultSize! * 5,
+                  ),
+
+                  Text(
+                    "01151868730",
                     style: TextStyle(
                       color: kMainColor,
                       fontFamily: "blacklisted",

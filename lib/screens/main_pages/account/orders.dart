@@ -41,13 +41,15 @@ class Orders extends StatelessWidget {
         body: Container(
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: const [
-                kMainColor,
-                thirdColor,
-                kMainColor,
-              ]
+          color: Colors.white,
+          child: Center(
+            child: Text(
+              "No Previous Orders",
+              style: TextStyle(
+                fontFamily: "blacklisted",
+                fontSize: 18.sp,
+                
+              ),
             ),
           ),
         ),

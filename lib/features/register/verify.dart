@@ -35,13 +35,15 @@ class _VerifyTokenState extends State<VerifyToken> {
     final Map<String, dynamic> decodedBody = json.decode(response.body);
     final int? statusCode = decodedBody['statusCode'];
     final String? message = decodedBody['message'];
+    // final List<int>? USERID = decodedBody['data'];
+    // print(USERID?[0]);
     print(statusCode);
     print(message);
     if (statusCode == 200) {
       showToast(message: "$message");
-      final int? USERID = decodedBody['data'];
-      print(USERID);
       // eb3at el data lel page elgya
+      final int? USERID = decodedBody['data'];
+
       Navigator.pushNamed(context, "/newpass",arguments: USERID);
       
     }else{
@@ -79,6 +81,15 @@ class _VerifyTokenState extends State<VerifyToken> {
                   redColor,
                 ]
               ),
+            ),
+          ),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              
             ),
           ),
         ),

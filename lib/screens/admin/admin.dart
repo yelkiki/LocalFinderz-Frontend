@@ -29,11 +29,18 @@ class _AdminPageState extends State<AdminPage> {
           ),
           automaticallyImplyLeading: false,
           elevation: 2.0.h,
+          
           toolbarHeight: SizeConfig.defaultSize! * 7,
           centerTitle: true,
           flexibleSpace: Container(
             decoration: BoxDecoration(
-              color: kMainColor,
+              gradient: LinearGradient(
+                colors: [
+                  eswed,
+                  redColor,
+                  eswed,
+                ]
+              ),
             ),
           ),
         ),
@@ -42,13 +49,19 @@ class _AdminPageState extends State<AdminPage> {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           decoration: BoxDecoration(
-            color: kMainColor,
+            gradient: LinearGradient(
+              colors: [
+                eswed,
+                redColor,
+                eswed,
+              ]
+            ),
           ),
           child: Column(
             children: [
 
               SizedBox(
-                height: SizeConfig.defaultSize! * 10,
+                height: SizeConfig.defaultSize! * 6,
               ),
 
               GestureDetector(
@@ -234,6 +247,39 @@ class _AdminPageState extends State<AdminPage> {
                   child: Center(
                     child: Text(
                       "delete user",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "blacklisted",
+                        fontSize: 20.sp,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                height: SizeConfig.defaultSize! * 3,
+              ),
+
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/login");
+                },
+                child: Container(
+                  height: SizeConfig.defaultSize! * 6,
+                  width: SizeConfig.defaultSize! * 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.w),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2,
+                    )
+                  ),
+                          
+                  child: Center(
+                    child: Text(
+                      "Log out",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontFamily: "blacklisted",

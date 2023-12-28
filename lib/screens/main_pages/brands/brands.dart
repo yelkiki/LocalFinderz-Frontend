@@ -97,6 +97,7 @@ class _BrandsState extends State<Brands> {
 
             ),
           ),
+          
           centerTitle: true,
           backgroundColor: Colors.black,
           elevation: 1.h,

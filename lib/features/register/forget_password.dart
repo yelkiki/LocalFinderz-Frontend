@@ -19,8 +19,13 @@ class ForgetPassword extends StatefulWidget {
 class _ForgetPageState extends State<ForgetPassword>{
 
   final TextEditingController emailController = TextEditingController();
+  bool _isLoading = false; // Track loading state
 
   Future<void> _resetPassword(BuildContext context) async {
+    setState(() {
+      _isLoading = true; // Set loading state to true when reset password starts
+    });
+
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/sendmail');
 
     final response = await http.post(
@@ -37,21 +42,27 @@ class _ForgetPageState extends State<ForgetPassword>{
     final Map<String, dynamic> decodedBody = json.decode(response.body);
     final int? statusCode = decodedBody['statusCode'];
     final String? message = decodedBody['message'];
-    final List<dynamic>? errorMessages = decodedBody['data'] != null
-        ? List<String>.from(decodedBody['data'])
-        : null;
     if (statusCode == 200) {
       showToast(message: "$message");
       // hena redirect le page el verify token
       Navigator.pushNamed(context, "/verify");
     }else{
-      if (errorMessages == null) {
-          showToast(message: "$message");
-        } else {
-           final combinedErrors = errorMessages.join(', ');
-          showToast(message: "$combinedErrors");
-          }
+      showToast(message: "$message");
+      
+      // final List<dynamic>? errorMessages = decodedBody['data'] != null
+      //     ? List<String>.from(decodedBody['data'])
+      //     : null;
+      // if (errorMessages == null) {
+      //     showToast(message: "$message");
+      //   } else {
+      //      final combinedErrors = errorMessages.join(', ');
+      //     showToast(message: "$combinedErrors");
+      //     }
     }
+
+    setState(() {
+      _isLoading = false; // Set loading state to false after password reset process
+    });
   
   }
 
@@ -83,6 +94,15 @@ class _ForgetPageState extends State<ForgetPassword>{
                 redColor,
               ]
             ),
+          ),
+        ),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            
           ),
         ),
       ),
@@ -207,7 +227,9 @@ class _ForgetPageState extends State<ForgetPassword>{
                         SizedBox(
                           height: SizeConfig.defaultSize! * 3,
                         ),
-                              
+
+                        
+                         
                         
                       ],
                     ),
@@ -215,6 +237,22 @@ class _ForgetPageState extends State<ForgetPassword>{
                 ),
               ),
             ),
+
+            if (_isLoading)
+              Expanded(
+                child: Container(
+                  height: SizeConfig.screenHeight,
+                  width: SizeConfig.screenWidth,
+                  color: Colors.grey.withOpacity(0.5),
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      // Show loading indicator if _isLoading is true
+                      valueColor: AlwaysStoppedAnimation<Color>(eswed),
+                    ),
+                  ),
+                ),
+              ), 
+
           ],
         )
        
