@@ -200,19 +200,22 @@ class _ProductsState extends State<Products> {
 
               Expanded(
                 child: Container(
-                  width: SizeConfig.defaultSize! * 35,
+                  width: SizeConfig.defaultSize! * 40,
+                  color: Colors.amber,
                   
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 15.0,
                       mainAxisSpacing: 10.0,
+
                     ),
                     itemCount: items.length,
 
                     itemBuilder: (BuildContext context, int index) {
                       Product item = items[index];
                       return Card(
+                        
                         color: secondColor,
                         shadowColor: Colors.grey,
                         shape: Border.all(
@@ -230,15 +233,24 @@ class _ProductsState extends State<Products> {
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // Expanded(
-                                // child: Image.network(
-                                //   item.image,
-                                //   width: double.infinity,
-                                //   height: double.infinity,
-                                //   fit: BoxFit.cover,
-                                // ),
-                              // ),
+
+                              Center(
+                                child: Container(
+                                  height: SizeConfig.defaultSize! * 6,
+                                  width: SizeConfig.defaultSize! * 7,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        "https://drive.google.com/uc?export=download&id=1OcKND8iP6GgdTThvUx73HpINGchzQVoS",                                      
+                                      ),
+                                      fit: BoxFit.fitWidth, 
+                                    ),
+                                  ),
+                                ),
+                              ),
+
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Column(
@@ -248,21 +260,23 @@ class _ProductsState extends State<Products> {
                                       item.name,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16,
+                                        fontSize: 13.sp,
                                       ),
                                     ),
                                     SizedBox(height: 4),
                                     Text(
                                       'Price: \$${item.price}',
                                       style: TextStyle(
-                                        color: Colors.grey[700],
+                                        color: Colors.grey.shade800,
+                                        fontSize: 12.sp,
                                       ),
                                     ),
                                     SizedBox(height: 4),
                                     Text(
                                       'Brand: ${item.brand.name}',
                                       style: TextStyle(
-                                        color: Colors.grey[700],
+                                        color: Colors.grey.shade800,
+                                        fontSize: 12.sp,
                                       ),
                                     ),
                                   ],
