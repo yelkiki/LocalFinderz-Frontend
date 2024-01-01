@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (statusCode == 200) {
         final int? role = decodedBody['role'];
-        print(role);
+        // print(role);
         if (role == 1){
           Navigator.pushNamed(context, "/bottomNavBar");
         }else{
@@ -260,22 +260,22 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
 
-                        // Align(
-                        //   alignment: Alignment.centerLeft,
-                        //   child: GestureDetector(
-                        //     onTap: () {
-                        //       Navigator.pushNamed(context, "/bottomNavBar");
-                        //     },
-                        //     child: Text(
-                        //       "skip",
-                        //       style: TextStyle(
-                        //         fontWeight: FontWeight.bold,
-                        //         fontSize: 15.sp,
-                        //         color: redColor,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "/bottomNavBar");
+                            },
+                            child: Text(
+                              "skip",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
+                                color: redColor,
+                              ),
+                            ),
+                          ),
+                        ),
                               
                         SizedBox(
                           height: SizeConfig.defaultSize! * 4,
@@ -364,16 +364,14 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             if (_isLoading)
-              Expanded(
-                child: Container(
-                  height: SizeConfig.screenHeight,
-                  width: SizeConfig.screenWidth,
-                  color: Colors.grey.withOpacity(0.5),
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      // Show loading indicator if _isLoading is true
-                      valueColor: AlwaysStoppedAnimation<Color>(eswed),
-                    ),
+              Container(
+                height: SizeConfig.screenHeight,
+                width: SizeConfig.screenWidth,
+                color: Colors.grey.withOpacity(0.5),
+                child: Center(
+                  child: CircularProgressIndicator(
+                    // Show loading indicator if _isLoading is true
+                    valueColor: AlwaysStoppedAnimation<Color>(eswed),
                   ),
                 ),
               ), 
