@@ -243,7 +243,7 @@ class _ProductsState extends State<Products> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: NetworkImage(
-                                        "https://drive.google.com/uc?export=download&id=1OcKND8iP6GgdTThvUx73HpINGchzQVoS",                                      
+                                        item.image,                                      
                                       ),
                                       fit: BoxFit.fitWidth, 
                                     ),
