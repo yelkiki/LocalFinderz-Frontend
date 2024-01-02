@@ -239,16 +239,14 @@ class _ForgetPageState extends State<ForgetPassword>{
             ),
 
             if (_isLoading)
-              Expanded(
-                child: Container(
-                  height: SizeConfig.screenHeight,
-                  width: SizeConfig.screenWidth,
-                  color: Colors.grey.withOpacity(0.5),
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      // Show loading indicator if _isLoading is true
-                      valueColor: AlwaysStoppedAnimation<Color>(eswed),
-                    ),
+              Container(
+                height: SizeConfig.screenHeight,
+                width: SizeConfig.screenWidth,
+                color: Colors.grey.withOpacity(0.5),
+                child: Center(
+                  child: CircularProgressIndicator(
+                    // Show loading indicator if _isLoading is true
+                    valueColor: AlwaysStoppedAnimation<Color>(eswed),
                   ),
                 ),
               ), 
