@@ -254,9 +254,9 @@ class _ProductsState extends State<Products> {
                                 // Handle item tap
                                 print('Tapped on: ${item.id}');
 
-                                setState(() {
-                                  isFavorite = !isFavorite; // Toggle favorite state
-                                });
+                                // setState(() {
+                                //   isFavorite = !isFavorite; // Toggle favorite state
+                                // });
                                 // Navigator.pushNamed(context,'/productDetails',arguments:item.id)
                               },
                               child: Column(

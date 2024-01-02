@@ -40,10 +40,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Brand> items = [];
+  int currentIndex = 0;
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
+    
     _DisplayBrands(context);
   }
 
@@ -176,8 +186,9 @@ class _HomePageState extends State<HomePage> {
             SliverToBoxAdapter(
               
               child: Container(
-                height: SizeConfig.defaultSize! * 25,
+                height: SizeConfig.screenHeight,
                 width: SizeConfig.screenWidth,
+                
                 decoration: BoxDecoration(
                   // gradient: LinearGradient(
                   //   colors: const [
@@ -412,11 +423,101 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
 
-
-                      
+                      SizedBox(
+                        height: SizeConfig.defaultSize! * 2,
+                      ),
+                    
                       ////////////////////////////////////// hena el brands
-                      ///
+
+                      Column(
+                        children: [
+                          Container(
+                            height: SizeConfig.defaultSize! * 20,
+                            width: SizeConfig.defaultSize! * 35,
+                            child: PageView.builder(
+                              itemCount: items.length > 4 ? 4 : items.length,
+                              scrollDirection: Axis.horizontal,
+                              onPageChanged: (int index) {
+                                setState(() {
+                                  _currentPage = index;
+                                });
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                Brand item = items[index];
+                                return InkWell(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      // height: SizeConfig.defaultSize! * 10,
+                                      width: SizeConfig.defaultSize! * 33,
+                                      margin: EdgeInsets.symmetric(vertical: 15.h),
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(20),
+                                        border: Border.all(
+                                          color: kMainColor,
+                                          width: 3,
+                                        ),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        item.name,
+                                        style: TextStyle(
+                                          color: redColor,
+                                          fontSize: 18.sp,
+                                          fontFamily: "blacklisted",
+                                                        
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+
+                          Container(
+                            color: Colors.transparent,
+                            width: SizeConfig.defaultSize! * 11,
+                            height: SizeConfig.defaultSize! * 2,
+                            child: PageView.builder(
+                              itemCount: items.length > 4 ? 4 : items.length,
+                              controller: _pageController,
+                              onPageChanged: (int page) {
+                                setState(() {
+                                  _currentPage = page;
+                                });
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                return Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: List.generate(
+                                    items.length > 4 ? 4 : items.length,
+                                    (index) => buildDot(index, context),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                       
+
+                    //   Container(
+                    //   color: Colors.transparent,
+                    //   width: SizeConfig.defaultSize! * 11,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.end,
+                    //     children: List.generate(
+                    //       contents.length,
+                    //       (index) => buildDot(index, context),
+                    //     ),
+                    //   ),
+                    // ),
+
+                      SizedBox(
+                        height: SizeConfig.defaultSize! * 5,
+                      ),
 
                     ],
                   ),
@@ -424,45 +525,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SliverToBoxAdapter(
-              child: Container(
-                height: SizeConfig.screenHeight,
-                child: Expanded(
-                  child: Container(
-                    width: SizeConfig.defaultSize! * 35,
-                    child: ListView.builder(
-                      itemCount: items.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        Brand item = items[index];
-                        return Container(
-                          height: SizeConfig.defaultSize! * 15,
-                          
-                          margin: EdgeInsets.symmetric(vertical: 15.h),
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: kMainColor,
-                              width: 3,
-                            ),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            item.name,
-                            style: TextStyle(
-                              color: redColor,
-                              fontSize: 18.sp,
-                              fontFamily: "blacklisted",
-
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // SliverToBoxAdapter(
+            //   child: 
+            // ),
             
             
 
@@ -473,6 +538,19 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Container buildDot(int index, BuildContext context) {
+    return Container(
+      height: SizeConfig.defaultSize! * 1,
+      width: _currentPage == index ? SizeConfig.defaultSize! * 3 : SizeConfig.defaultSize! * 1,
+      margin: EdgeInsets.only(right: 5.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.w),
+        color: _currentPage == index ? redColor : Colors.grey,
+      ),
+    );
+  }
+
 }
 
 
