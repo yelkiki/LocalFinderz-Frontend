@@ -141,71 +141,147 @@ class _HoodiesState extends State<Hoodies> {
           ),
         ),
 
-        body: Container(
-          height: SizeConfig.screenHeight,
-          width: SizeConfig.screenWidth,
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-          ),
-          child: Container(
-            width: SizeConfig.defaultSize! * 35,
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 15.0,
-                mainAxisSpacing: 10.0,
+        body: Padding(
+          padding: const EdgeInsets.only(top: 20, bottom: 20),
+          child: Center(
+            child: Container(
+              height: SizeConfig.screenHeight,
+              width: SizeConfig.defaultSize! * 40,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
               ),
-              itemCount: items.length,
-              itemBuilder: (BuildContext context, int index) {
-                Product item = items[index];
-                return Card(
-                  shape: Border.all(
-                    color: kMainColor,
-                    width: 2,
-                  ),
-                  child: InkWell(
-                    onTap: () {
-                      // Handle item tap
-                      print('Tapped on: ${item.id}');
-                      // Navigator.pushNamed(context,'/productDetails',arguments:item.id)
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                item.name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text(
-                                'Price: \$${item.price}',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text(
-                                'Brand: ${item.brand.name}',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                ),
-                              ),
-                            ],
-                          ),
+              child: Expanded(
+                    child: Container(
+                      // width: SizeConfig.defaultSize! * 40,
+                      
+                      color: Colors.transparent,
+                      
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.0,
+                          mainAxisSpacing: 10.0,
+                          mainAxisExtent: SizeConfig.defaultSize! * 35,
                         ),
-                      ],
+                        itemCount: items.length,
+            
+                        itemBuilder: (BuildContext context, int index) {
+                          Product item = items[index];
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: secondColor,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: kMainColor,
+                                width: 2,
+                              )
+                            ),
+                            
+                            child: Stack(
+                              children: [
+            
+                                // Align(
+                                //   alignment: Alignment.topRight,
+                                //   child: Padding(
+                                //     padding: const EdgeInsets.all(5.0),
+                                //     child: GestureDetector(
+                                //       onTap: () {
+                                //         setState(() {
+                                //           isFavorite = !isFavorite; // Toggle favorite state
+                                //         });
+                                //       },
+                                //       child: Icon(
+                                //         isFavorite ? Icons.favorite : Icons.favorite_border,
+                                //         color: isFavorite ? redColor : kMainColor,
+                                //       ),
+                                //     ),
+                                //   ),
+                                  
+                                // ),
+            
+                                InkWell(
+                                  onTap: () {
+                                    // Handle item tap
+                                    print('Tapped on: ${item.id}');
+            
+                                    // setState(() {
+                                    //   isFavorite = !isFavorite; // Toggle favorite state
+                                    // });
+                                    // Navigator.pushNamed(context,'/productDetails',arguments:item.id)
+                                  },
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                                    
+                                      Center(
+                                        child: Container(
+                                          height: SizeConfig.defaultSize! * 20,
+                                          width: SizeConfig.defaultSize! * 15,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                item.image,                                      
+                                              ),
+                                              fit: BoxFit.fitWidth, 
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                                    
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 10),
+                                        child: Column(
+                                          
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          
+                                          children: [
+                            
+                                            Text(
+                                              item.name,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 13.sp,
+                                              ),
+                                            ),
+                            
+                                            SizedBox(
+                                              height: SizeConfig.defaultSize,
+                                            ),
+                            
+                                            Text(
+                                              'Price: \$${item.price}',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade800,
+                                                fontSize: 12.sp,
+                                              ),
+                                            ),
+                            
+                                            SizedBox(
+                                              height: SizeConfig.defaultSize,
+                                            ),
+                            
+                                            Text(
+                                              'Brand: ${item.brand.name}',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade800,
+                                                fontSize: 12.sp,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+            
                     ),
                   ),
-                );
-              },
             ),
           ),
         ),
