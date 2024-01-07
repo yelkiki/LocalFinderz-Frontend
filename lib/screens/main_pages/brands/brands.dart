@@ -58,7 +58,6 @@ class _BrandsState extends State<Brands> {
   final int? statusCode = decodedBody['statusCode'];
   final String? message = decodedBody['message'];
   
-  // Check if 'data' key exists and if it's a non-null list
   if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
     final List<Map<String, dynamic>> fetchedItems =
       List<Map<String, dynamic>>.from(decodedBody['data']);
