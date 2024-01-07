@@ -29,6 +29,7 @@ import 'package:local_finderzzz/screens/main_pages/categories/hoodies.dart';
 import 'package:local_finderzzz/screens/main_pages/categories/pants.dart';
 import 'package:local_finderzzz/screens/main_pages/categories/sets.dart';
 import 'package:local_finderzzz/screens/main_pages/categories/tshirts.dart';
+import 'package:local_finderzzz/screens/main_pages/filter/filter.dart';
 import 'package:local_finderzzz/screens/main_pages/products/product_view.dart';
 import 'package:local_finderzzz/screens/main_pages/products/products.dart';
 import 'package:local_finderzzz/screens/main_pages/home.dart';
@@ -36,6 +37,7 @@ import 'package:local_finderzzz/screens/main_pages/account/profile.dart';
 import 'package:local_finderzzz/screens/main_pages/brands/brands.dart';
 import 'package:local_finderzzz/screens/search/search_brands.dart';
 import 'package:local_finderzzz/screens/search/search_products.dart';
+import 'package:local_finderzzz/screens/user/user.dart';
 
 
 void main() {
@@ -88,6 +90,8 @@ class MyApp extends StatelessWidget {
             '/updatequantity' : (context) => UpdateQuantity(),
             '/deleteuser' : (context) => DeleteUser(),
             '/removebrand' : (context) => RemoveBrand(),
+            '/user' : (context) => User(),
+            '/filter' : (context) => const Filter(),
           },
         );
       }

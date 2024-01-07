@@ -190,6 +190,27 @@ class _ProductsState extends State<Products> {
                           fontSize: 12.sp,                               
                         ),
                       ),
+
+                      SizedBox(
+                        width: SizeConfig.defaultSize! * 8,
+                      ),
+
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "/filter");
+                        },
+                        child: Container(
+                          height: SizeConfig.defaultSize! * 5,
+                          width: SizeConfig.defaultSize! * 5,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent
+                          ),
+                          child: Icon(
+                            Icons.filter_alt_outlined,
+                            size: SizeConfig.defaultSize! * 3,
+                          ),
+                        ),
+                      ),
               
                     ],
                   ),
