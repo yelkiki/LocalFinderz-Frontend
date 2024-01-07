@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, non_constant_identifier_names
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -11,34 +11,22 @@ import 'package:http/http.dart' as http;
 class Brand {
   final int id;
   final String name;
-  final String email;
-  final String address;
-  final int phone;
-  final String logo;
 
-  Brand({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.address,
-    required this.phone,
-    required this.logo,
-  });
-  factory Brand.fromJson(Map<String, dynamic> json) {
-    return Brand(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      email: json['email'] as String,
-      address: json['address'] as String,
-      phone: json['phone'] as int,
-      logo: json['logo'] as String,
-    );
-  }
+  Brand({required this.id,required this.name});
 }
 
 List<Brand> parseBrands(List<Map<String, dynamic>> brandList) {
-  return brandList.map((data) => Brand.fromJson(data)).toList();
+  return brandList.map((data) {
+    return Brand(
+      id: data['id'] as int,
+      name: data['name'] as String,
+);
+}).toList();
 }
+
+// List<Brand> parseBrands(List<Map<String, dynamic>> brandList) {
+//   return brandList.map((data) => Brand.fromJson(data)).toList();
+// }
 
 
 class SearchBrands extends StatefulWidget {
@@ -49,8 +37,7 @@ class SearchBrands extends StatefulWidget {
 }
 
 class _SearchBrandsState extends State<SearchBrands> {
-
-List<Brand> items = [];
+  List<Brand> items = [];
 
    @override
   void initState() {
@@ -75,22 +62,15 @@ List<Brand> items = [];
   final Map<String, dynamic> decodedBody = json.decode(response.body);
   final int? statusCode = decodedBody['statusCode'];
   final String? message = decodedBody['message'];
-  // Check if 'data' key exists and if it's a non-null list
+  
   if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
     final List<Map<String, dynamic>> fetchedItems =
       List<Map<String, dynamic>>.from(decodedBody['data']);
-
-/////////////////////////////////////// NOT WORKING
-  print(message);
-  print(statusCode);
-  print(fetchedItems);
 
     if (statusCode == 200) {
       setState(() {
         items = parseBrands(fetchedItems);
       });
-      print('Parsed Items: ${items[0]}');
-      // showToast(message: "$message");
     } else {
       showToast(message: "Error $message");
     }
@@ -191,8 +171,8 @@ List<Brand> items = [];
           )
         ),
     
-        body: Container(
-          width: SizeConfig.defaultSize! * 35,
+        body: Padding(
+          padding: const EdgeInsets.only(left: 30,right: 30),
           child: ListView.builder(
             itemCount: items.length,
             itemBuilder: (BuildContext context, int index) {
@@ -205,14 +185,19 @@ List<Brand> items = [];
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: Colors.white,
+                    color: kMainColor,
                     width: 3,
                   ),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   item.name,
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                    color: redColor,
+                    fontSize: 18.sp,
+                    fontFamily: "blacklisted",
+          
+                  ),
                 ),
               );
             },
