@@ -1,18 +1,64 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, empty_constructor_bodies, use_build_context_synchronously
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
+import 'package:http/http.dart' as http;
 
-class AddBrand extends StatelessWidget {
+class AddBrand extends StatefulWidget {
   AddBrand({super.key});
 
+  @override
+  State<AddBrand> createState() => _AddBrandState();
+}
+
+class _AddBrandState extends State<AddBrand> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController logoController = TextEditingController();
+
+  Future<void> _addBrand(BuildContext context) async {
+    final token = ModalRoute.of(context)!.settings.arguments as String?; 
+    final Uri url = Uri.parse('http://10.0.2.2:3000/admin/addBrand');
+
+    try {
+      if (token != null){
+        final response = await http.post(
+          url,
+          headers: <String, String>{ 
+            'Content-Type': 'application/json; charset=UTF-8', 
+            'authorization':token,
+          }, 
+          body: jsonEncode(<String, String>{
+            "name":nameController.text,
+            "address":addressController.text,
+            "email":emailController.text,
+            "phone":phoneController.text,
+            "logo":logoController.text
+          }),
+        );
+
+        final Map<String, dynamic> decodedBody = json.decode(response.body);
+        final int? statusCode = decodedBody['statusCode'];
+        final String? message = decodedBody['message'];
+        if (statusCode == 200) {
+          showToast(message: "$message");
+          Navigator.pushNamed(context, "/admin",arguments: token);
+        } else {
+          showToast(message: "$message");
+        }
+      }
+    } catch (error) {
+      showToast(message: "An error occured, please try again!");
+    }
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -253,8 +299,7 @@ class AddBrand extends StatelessWidget {
 
                   GestureDetector(
                     onTap: () {
-                      // el func beta3tak
-                      
+                      _addBrand(context);
                     },
                     child: Container(
                       height: SizeConfig.defaultSize! * 6,

@@ -32,16 +32,6 @@ class _LoginPageState extends State<LoginPage> {
 
     final Uri url = Uri.parse('http://10.0.2.2:3000/auth/login');
 
-    // loading circle
-    // setState( () {
-    //   showDialog(
-    //     context: context,
-    //     builder: (context) {
-    //         return Center(child: CircularProgressIndicator());
-    //       }
-    //   );}
-    // );
-
     try {
       final response = await http.post(
         url,
@@ -65,23 +55,23 @@ class _LoginPageState extends State<LoginPage> {
 
       if (statusCode == 200) {
         final int? role = decodedBody['role'];
+        String? token = decodedBody['token'];
+        token = "LFinders$token";
         // print(role);
         if (role == 1){
-          Navigator.pushNamed(context, "/bottomNavBar");
+          Navigator.pushNamed(context, "/bottomNavBar",arguments: token);
         }else if (role == 3){
-          Navigator.pushNamed(context, "/user"); 
+          Navigator.pushNamed(context, "/user",arguments: token); 
         }else{
-          Navigator.pushNamed(context, "/admin");
-        }
-
-        
+          Navigator.pushNamed(context, "/admin",arguments: token);
+        }        
       } else {
         if (errorMessages == null) {
           showToast(message: "$message");
         } else {
            final combinedErrors = errorMessages.join(', ');
           showToast(message: "$combinedErrors");
-          }
+        }
       }
       
     } catch (error) {
