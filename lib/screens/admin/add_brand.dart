@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,11 +58,11 @@ class AddBrand extends StatelessWidget {
               children: [
           
                 SizedBox(
-                  height: SizeConfig.defaultSize! * 5,
+                  height: SizeConfig.defaultSize! * 3,
                 ),
           
                 Container(
-                  height: SizeConfig.defaultSize! * 5,
+                  height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 30,
                   child: TextFormField(
                     controller: nameController,
@@ -100,7 +100,7 @@ class AddBrand extends StatelessWidget {
                 ),
           
                 Container(
-                  height: SizeConfig.defaultSize! * 5,
+                  height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 30,
                   child: TextFormField(
                     controller: emailController,
@@ -138,7 +138,7 @@ class AddBrand extends StatelessWidget {
                 ),
           
                 Container(
-                  height: SizeConfig.defaultSize! * 5,
+                  height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 30,
                   child: TextFormField(
                     controller: addressController,
@@ -176,7 +176,7 @@ class AddBrand extends StatelessWidget {
                 ),
           
                 Container(
-                  height: SizeConfig.defaultSize! * 5,
+                  height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 30,
                   child: TextFormField(
                     controller: phoneController,
@@ -214,7 +214,7 @@ class AddBrand extends StatelessWidget {
                 ),
           
                 Container(
-                  height: SizeConfig.defaultSize! * 5,
+                  height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 30,
                   child: TextFormField(
                     controller: logoController,
@@ -246,6 +246,40 @@ class AddBrand extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                SizedBox(
+                    height: SizeConfig.defaultSize! * 4,
+                  ),
+
+                  GestureDetector(
+                    onTap: () {
+                      // el func beta3tak
+                      
+                    },
+                    child: Container(
+                      height: SizeConfig.defaultSize! * 6,
+                      width: SizeConfig.defaultSize! * 25,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          colors: [
+                            eswed,
+                            redColor,                        
+                          ]
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "C o n f i r m",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "blacklisted",
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
           
                 
               ],

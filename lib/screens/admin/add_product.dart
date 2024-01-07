@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +21,7 @@ class AddProduct extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
 
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: true,
         
         appBar: AppBar(
           title: Text(
@@ -51,279 +51,315 @@ class AddProduct extends StatelessWidget {
           ),
         ),
 
-        body: Container(
-          height: SizeConfig.screenHeight,
-          
-          child: Center(
-            child: Column(
-              children: [
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 5,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: brandController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Brand Name",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+        body: SingleChildScrollView(
+          child: Container(
+            height: SizeConfig.screenHeight,
+            
+            child: Center(
+              child: Column(
+                children: [
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 3,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: brandController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Brand Name",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 2,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: nameController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Product Name",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: nameController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Product Name",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 2,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: priceController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Product Price",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: priceController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Product Price",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 2,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: sexController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Product Sex",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: sexController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Product Sex",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 2,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: imageController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Image URL",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: imageController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Image URL",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 2,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: quantityController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Product Quantity",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: quantityController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Product Quantity",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-          
-                SizedBox(
-                  height: SizeConfig.defaultSize! * 2,
-                ),
-          
-                Container(
-                  height: SizeConfig.defaultSize! * 5,
-                  width: SizeConfig.defaultSize! * 30,
-                  child: TextFormField(
-                    controller: categoryController,
-                    textAlign: TextAlign.center,              
-                    decoration: InputDecoration(                
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      hintText: "Enter Product Category",       
-                      hintStyle: TextStyle(
-                        fontSize: 13.sp,
-                        color: kMainColor,
-                        fontStyle: FontStyle.italic,
-                      ),        
-                      border: InputBorder.none,                
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                      
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+                      
+                  Container(
+                    height: SizeConfig.defaultSize! * 7,
+                    width: SizeConfig.defaultSize! * 30,
+                    child: TextFormField(
+                      controller: categoryController,
+                      textAlign: TextAlign.center,              
+                      decoration: InputDecoration(                
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        hintText: "Enter Product Category",       
+                        hintStyle: TextStyle(
+                          fontSize: 13.sp,
                           color: kMainColor,
-                          width: 2,
+                          fontStyle: FontStyle.italic,
+                        ),        
+                        border: InputBorder.none,                
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kMainColor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        borderRadius: BorderRadius.circular(30),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),                
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                      ),                
                     ),
                   ),
-                ),
-              ],
+
+                  SizedBox(
+                    height: SizeConfig.defaultSize! * 2,
+                  ),
+
+                  GestureDetector(
+                    onTap: () {
+                      // el func beta3tak
+                      
+                    },
+                    child: Container(
+                      height: SizeConfig.defaultSize! * 6,
+                      width: SizeConfig.defaultSize! * 25,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          colors: [
+                            eswed,
+                            redColor,                        
+                          ]
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "C o n f i r m",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "blacklisted",
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

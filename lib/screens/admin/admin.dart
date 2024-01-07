@@ -99,7 +99,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  /////////////////////////////
+                  Navigator.pushNamed(context, "/removebrand");
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -165,7 +165,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  /////////////////////////////
+                  Navigator.pushNamed(context, "/removeproduct");
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -198,7 +198,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  /////////////////////////////
+                  Navigator.pushNamed(context, "/updatequantity");
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -231,7 +231,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  /////////////////////////////
+                  Navigator.pushNamed(context, "/deleteuser");
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,

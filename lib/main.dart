@@ -11,6 +11,10 @@ import 'package:local_finderzzz/features/register/signup.dart';
 import 'package:local_finderzzz/features/register/verify.dart';
 import 'package:local_finderzzz/features/register/welcome_screen.dart';
 import 'package:local_finderzzz/features/splash/splash_view.dart';
+import 'package:local_finderzzz/screens/admin/delete_user.dart';
+import 'package:local_finderzzz/screens/admin/remove_brand.dart';
+import 'package:local_finderzzz/screens/admin/remove_product.dart';
+import 'package:local_finderzzz/screens/admin/update_quantity.dart';
 import 'package:local_finderzzz/screens/main_pages/account/about_app.dart';
 import 'package:local_finderzzz/screens/main_pages/account/settings/account_settings/account_info.dart';
 import 'package:local_finderzzz/screens/admin/add_brand.dart';
@@ -80,6 +84,10 @@ class MyApp extends StatelessWidget {
             '/accountinfo' : (context) => const AccountInfo(),
             '/addproduct' : (context) => AddProduct(),
             '/addbrand' : (context) => AddBrand(),
+            '/removeproduct' : (context) => RemoveProduct(),
+            '/updatequantity' : (context) => UpdateQuantity(),
+            '/deleteuser' : (context) => DeleteUser(),
+            '/removebrand' : (context) => RemoveBrand(),
           },
         );
       }
