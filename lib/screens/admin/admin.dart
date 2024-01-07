@@ -13,8 +13,10 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
+  
   @override
   Widget build(BuildContext context) {
+    final token = ModalRoute.of(context)!.settings.arguments as String?; 
     return SafeArea(
       child: Scaffold(
         
@@ -66,7 +68,8 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/addbrand");
+                  Navigator.pushNamed(context, "/addbrand",arguments: token);
+                  
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -99,7 +102,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/removebrand");
+                  Navigator.pushNamed(context, "/removebrand",arguments: token);
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -132,7 +135,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/addproduct");
+                  Navigator.pushNamed(context, "/addproduct",arguments: token);
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -165,7 +168,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/removeproduct");
+                  Navigator.pushNamed(context, "/removeproduct",arguments: token);
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -198,7 +201,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/updatequantity");
+                  Navigator.pushNamed(context, "/updatequantity",arguments: token);
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,
@@ -231,7 +234,7 @@ class _AdminPageState extends State<AdminPage> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/deleteuser");
+                  Navigator.pushNamed(context, "/deleteuser",arguments: token);
                 },
                 child: Container(
                   height: SizeConfig.defaultSize! * 6,

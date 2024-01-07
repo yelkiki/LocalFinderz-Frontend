@@ -1,14 +1,53 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, use_build_context_synchronously
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
+import 'package:http/http.dart' as http;
 
-class RemoveProduct extends StatelessWidget {
+class RemoveProduct extends StatefulWidget {
   RemoveProduct({super.key});
 
-  // final TextEditingController logoController = TextEditingController();
+  @override
+  State<RemoveProduct> createState() => _RemoveProductState();
+}
+
+class _RemoveProductState extends State<RemoveProduct> {
+  final TextEditingController prodid = TextEditingController();
+
+  Future<void> _delProduct(BuildContext context) async {
+      final token = ModalRoute.of(context)!.settings.arguments as String?; 
+      print(prodid.text);
+      final Uri url = Uri.parse('http://10.0.2.2:3000/admin/removeProduct/${prodid.text}');
+
+      try {
+        if (token != null){
+          final response = await http.delete(
+            url,
+            headers: <String, String>{ 
+              'Content-Type': 'application/json; charset=UTF-8', 
+              'authorization':token,
+            }, 
+          );
+
+          final Map<String, dynamic> decodedBody = json.decode(response.body);
+          final int? statusCode = decodedBody['statusCode'];
+          final String? message = decodedBody['message'];
+          if (statusCode == 200) {
+            showToast(message: "$message");
+            Navigator.pushNamed(context, "/admin",arguments: token);
+          } else {
+            showToast(message: "$message");
+          }
+        }
+      } catch (error) {
+        showToast(message: "An error occured, please try again!");
+      }
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +100,7 @@ class RemoveProduct extends StatelessWidget {
                   height: SizeConfig.defaultSize! * 7,
                   width: SizeConfig.defaultSize! * 30,
                   child: TextFormField(
-                    // controller: logoController,
+                    controller: prodid,
                     textAlign: TextAlign.center,              
                     decoration: InputDecoration(                
                       filled: true,
@@ -98,7 +137,7 @@ class RemoveProduct extends StatelessWidget {
                 GestureDetector(
                     onTap: () {
                       // el func beta3tak
-                      
+                      _delProduct(context);
                     },
                     child: Container(
                       height: SizeConfig.defaultSize! * 5,
