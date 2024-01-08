@@ -18,7 +18,7 @@ class Product {
   final String sex;
   final String image;
   final int quantity;
-  final int categoryId;
+  final String category;
   final int brandId;
   final Brand brand;
 
@@ -29,7 +29,7 @@ class Product {
     required this.sex,
     required this.image,
     required this.quantity,
-    required this.categoryId,
+    required this.category,
     required this.brandId,
     required this.brand,
   });
@@ -50,7 +50,7 @@ List<Product> parseProducts(List<Map<String, dynamic>> productList) {
       sex: data['sex'] as String,
       image: data['image'] as String,
       quantity: data['quantity'] as int,
-      categoryId: data['categoryId'] as int,
+      category: data['category'] as String,
       brandId: data['brandId'] as int,
       brand: Brand(name: data['brand']['name'] as String),
     );
