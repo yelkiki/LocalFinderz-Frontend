@@ -30,6 +30,7 @@ import 'package:local_finderzzz/screens/main_pages/categories/pants.dart';
 import 'package:local_finderzzz/screens/main_pages/categories/sets.dart';
 import 'package:local_finderzzz/screens/main_pages/categories/tshirts.dart';
 import 'package:local_finderzzz/screens/main_pages/filter/filter.dart';
+import 'package:local_finderzzz/screens/main_pages/filter/items_filtered.dart';
 import 'package:local_finderzzz/screens/main_pages/products/product_view.dart';
 import 'package:local_finderzzz/screens/main_pages/products/products.dart';
 import 'package:local_finderzzz/screens/main_pages/home.dart';
@@ -92,6 +93,8 @@ class MyApp extends StatelessWidget {
             '/removebrand' : (context) => RemoveBrand(),
             '/user' : (context) => User(),
             '/filter' : (context) => const Filter(),
+            // '/filtereditems' : (context) =>  FilteredItems(criteria: null,),
+            
           },
         );
       }
