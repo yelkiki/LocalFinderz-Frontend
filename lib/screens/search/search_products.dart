@@ -91,8 +91,8 @@ class _SearchProductsState extends State<SearchProducts> {
 
   final Map<String, dynamic> decodedBody = json.decode(response.body);
   final int? statusCode = decodedBody['statusCode'];
-  final String? message = decodedBody['message'];
-  // Check if 'data' key exists and if it's a non-null list
+  // final String? message = decodedBody['message'];
+
   if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
     final List<Map<String, dynamic>> fetchedItems =
       List<Map<String, dynamic>>.from(decodedBody['data']);
@@ -104,7 +104,10 @@ class _SearchProductsState extends State<SearchProducts> {
       });
       // showToast(message: "$message");
     } else {
-      showToast(message: "Error $message");
+      // showToast(message: "Error $message");
+      setState(() {
+        items = parseProducts(fetchedItems);
+      });
     }
   } else {
     showToast(message: "Invalid data received");

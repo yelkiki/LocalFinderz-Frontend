@@ -103,7 +103,10 @@ class _ProductsState extends State<Products> {
       });
       // showToast(message: "$message");
     } else {
-      showToast(message: "Error $message");
+      // showToast(message: "Error $message");
+      setState(() {
+        items = parseProducts(fetchedItems);
+      });
     }
   } else {
     showToast(message: "Invalid data received");

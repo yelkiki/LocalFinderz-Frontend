@@ -89,7 +89,7 @@ class _PantsState extends State<Pants> {
 
   final Map<String, dynamic> decodedBody = json.decode(response.body);
   final int? statusCode = decodedBody['statusCode'];
-  final String? message = decodedBody['message'];
+  // final String? message = decodedBody['message'];
   
   // Check if 'data' key exists and if it's a non-null list
   if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
@@ -102,7 +102,10 @@ class _PantsState extends State<Pants> {
       });
       // showToast(message: "$message");
     } else {
-      showToast(message: "Error $message");
+      // showToast(message: "Error $message");
+      setState(() {
+        items = parseProducts(fetchedItems);
+      });
     }
   } else {
     showToast(message: "Invalid data received");

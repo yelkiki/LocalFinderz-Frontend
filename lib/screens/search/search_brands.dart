@@ -61,7 +61,7 @@ class _SearchBrandsState extends State<SearchBrands> {
 
   final Map<String, dynamic> decodedBody = json.decode(response.body);
   final int? statusCode = decodedBody['statusCode'];
-  final String? message = decodedBody['message'];
+  // final String? message = decodedBody['message'];
   
   if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
     final List<Map<String, dynamic>> fetchedItems =
@@ -72,7 +72,10 @@ class _SearchBrandsState extends State<SearchBrands> {
         items = parseBrands(fetchedItems);
       });
     } else {
-      showToast(message: "Error $message");
+      // showToast(message: "Error $message");
+      setState(() {
+        items = parseBrands(fetchedItems);
+      });
     }
   } else {
     showToast(message: "Invalid data received");
