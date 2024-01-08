@@ -18,7 +18,7 @@ class Product {
   final String sex;
   final String image;
   final int quantity;
-  final int categoryId;
+  final String category;
   final int brandId;
   final Brand brand;
 
@@ -29,7 +29,7 @@ class Product {
     required this.sex,
     required this.image,
     required this.quantity,
-    required this.categoryId,
+    required this.category,
     required this.brandId,
     required this.brand,
   });
@@ -50,7 +50,7 @@ List<Product> parseProducts(List<Map<String, dynamic>> productList) {
       sex: data['sex'] as String,
       image: data['image'] as String,
       quantity: data['quantity'] as int,
-      categoryId: data['categoryId'] as int,
+      category: data['category'] as String,
       brandId: data['brandId'] as int,
       brand: Brand(name: data['brand']['name'] as String),
     );
@@ -88,7 +88,7 @@ class _HoodiesState extends State<Hoodies> {
 
   final Map<String, dynamic> decodedBody = json.decode(response.body);
   final int? statusCode = decodedBody['statusCode'];
-  final String? message = decodedBody['message'];
+  // final String? message = decodedBody['message'];
   
   // Check if 'data' key exists and if it's a non-null list
   if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
@@ -101,7 +101,10 @@ class _HoodiesState extends State<Hoodies> {
       });
       // showToast(message: "$message");
     } else {
-      showToast(message: "Error $message");
+      // showToast(message: "Error $message");
+      setState(() {
+        items = parseProducts(fetchedItems);
+      });
     }
   } else {
     showToast(message: "Invalid data received");
