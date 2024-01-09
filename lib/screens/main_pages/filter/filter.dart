@@ -10,23 +10,18 @@ import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 
 
-class FilterCriteria {
-  final RangeValues priceRange;
-  final bool lowerToHigher;
-  final bool higherToLower;
-  final bool shirts;
-  final bool pants;
-  final bool sets;
-  final bool hoodies;
 
+class FilterCriteria {
+  final double min;
+  final double max;
+  final String order;
+  final String category;
+  
   FilterCriteria({
-    required this.priceRange,
-    required this.lowerToHigher,
-    required this.higherToLower,
-    required this.shirts,
-    required this.pants,
-    required this.sets,
-    required this.hoodies,
+    required this.min,
+    required this.max,
+    required this.order,
+    required this.category,
   });
 }
 
@@ -50,6 +45,10 @@ class _FilterState extends State<Filter> {
   bool isSelected2 = false;
   bool LowerToHigher = false;
   bool HigherToLower = false;
+  String category = "";
+  String order = "";
+  double min = 0;
+  double max = 5000;
 
   bool isAnyInputSelected() {
     return values.start != 0 ||
@@ -65,13 +64,10 @@ class _FilterState extends State<Filter> {
   void applyFilters() {
     if (isAnyInputSelected()) {
       FilterCriteria criteria = FilterCriteria(
-        priceRange: values,
-        lowerToHigher: LowerToHigher,
-        higherToLower: HigherToLower,
-        shirts: shirts,
-        pants: pants,
-        sets: sets,
-        hoodies: hoodies,
+        min: min,
+        max: max,
+        order: order,
+        category: category,
       );
 
       Navigator.push(
@@ -101,6 +97,27 @@ class _FilterState extends State<Filter> {
       );
     }
   }
+
+  
+
+    // url += "min=${}&max=${}&order=${}&cat=${}";
+//   }else if (){
+
+//     // url += "min=${}&max=${}&order=${}";
+//   }else if (){
+    
+//     // url += "min=${}&max=${}&cat=${}";
+//   }else if (){
+//     // url += "order=${}&cat=${}";
+//   }else if (){
+//     // url += "min=${}&max=${}";
+//   }else if (){
+//     // url += "cat=${}";
+//   }else (){
+//     // url += "order=asc";
+//   }
+
+
 
   
   // List<String> names = [
@@ -188,6 +205,8 @@ class _FilterState extends State<Filter> {
                       onChanged: (newValues) {
                         setState(() {
                           values = newValues;
+                          min = values.start;
+                          max = values.end;
                         });
                       },
                     ),
@@ -210,11 +229,13 @@ class _FilterState extends State<Filter> {
                                 isSelected = true;
                                 HigherToLower = false;
                                 LowerToHigher = true;
+                                order = "asc";
                               });
                             }else{
                               setState(() {
                                 isSelected = false;
                                 LowerToHigher = false;
+                                order = order;
                               });
                             }
                             print('Lower to Higher selected: $LowerToHigher'); 
@@ -240,11 +261,13 @@ class _FilterState extends State<Filter> {
                                 isSelected2 = true;
                                 LowerToHigher = false;
                                 HigherToLower = true;
+                                order = "desc";
                               });
                             }else{
                               setState(() {
                                 isSelected2 = false;
                                 HigherToLower = false;
+                                order = order;
                               });
                             }
                             
@@ -363,6 +386,7 @@ class _FilterState extends State<Filter> {
                           sets = false;
                           hoodies = false;
                           shirts = value!;
+                          category = "tshirts";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -386,6 +410,7 @@ class _FilterState extends State<Filter> {
                           sets = false;
                           hoodies = false;
                           pants = value!;
+                          category = "pants";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -409,6 +434,7 @@ class _FilterState extends State<Filter> {
                           pants = false;
                           hoodies = false;
                           sets = value!;
+                          category = "sets";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -432,6 +458,7 @@ class _FilterState extends State<Filter> {
                           sets = false;
                           shirts = false;
                           hoodies = value!;
+                          category = "hoodies";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -445,11 +472,7 @@ class _FilterState extends State<Filter> {
                         
                         ),
                       ),
-                    ),
-
-                    
-
-                    
+                    ),          
                   ],
                 ),
               ),
