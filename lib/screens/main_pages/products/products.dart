@@ -195,7 +195,7 @@ class _ProductsState extends State<Products> {
                       ),
 
                       SizedBox(
-                        width: SizeConfig.defaultSize! * 8,
+                        width: SizeConfig.defaultSize! * 7.5,
                       ),
 
                       GestureDetector(

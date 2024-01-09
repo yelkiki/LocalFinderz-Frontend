@@ -386,7 +386,7 @@ class _FilterState extends State<Filter> {
                           sets = false;
                           hoodies = false;
                           shirts = value!;
-                          category = "tshirts";
+                          category = "Shirts";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -410,7 +410,7 @@ class _FilterState extends State<Filter> {
                           sets = false;
                           hoodies = false;
                           pants = value!;
-                          category = "pants";
+                          category = "Pants";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -434,7 +434,7 @@ class _FilterState extends State<Filter> {
                           pants = false;
                           hoodies = false;
                           sets = value!;
-                          category = "sets";
+                          category = "Sets";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,
@@ -458,7 +458,7 @@ class _FilterState extends State<Filter> {
                           sets = false;
                           shirts = false;
                           hoodies = value!;
-                          category = "hoodies";
+                          category = "Hoodies";
                         });
                       },
                       controlAffinity: ListTileControlAffinity.leading,

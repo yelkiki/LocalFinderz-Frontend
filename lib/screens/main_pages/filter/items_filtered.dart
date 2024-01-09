@@ -1,40 +1,28 @@
 // ignore_for_file: unnecessary_brace_in_string_interps, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/screens/main_pages/filter/filter.dart';
 import 'package:http/http.dart' as http;
+import 'package:local_finderzzz/utils/size_config.dart';
+import 'package:local_finderzzz/utils/widgets/constants.dart';
 
 class Product {
   final int id;
   final String name;
-  final int price;
-  final String sex;
   final String image;
-  final int quantity;
-  final String category;
-  final int brandId;
-  final Brand brand;
+  final int price;
+  final String brand;
 
   Product({
     required this.id,
     required this.name,
-    required this.price,
-    required this.sex,
     required this.image,
-    required this.quantity,
-    required this.category,
-    required this.brandId,
+    required this.price,
     required this.brand,
   });
-}
-
-class Brand {
-  final String name;
-
-  Brand({required this.name});
 }
 
 List<Product> parseProducts(List<Map<String, dynamic>> productList) {
@@ -42,15 +30,11 @@ List<Product> parseProducts(List<Map<String, dynamic>> productList) {
     return Product(
       id: data['id'] as int,
       name: data['name'] as String,
-      price: data['price'] as int,
-      sex: data['sex'] as String,
       image: data['image'] as String,
-      quantity: data['quantity'] as int,
-      category: data['category'] as String,
-      brandId: data['brandId'] as int,
-      brand: Brand(name: data['brand']['name'] as String),
+      price: data['price'] as int,
+      brand: data['brand'] as String,
     );
- }).toList();
+  }).toList();
 }
 
 
@@ -73,44 +57,40 @@ class _FilteredItemsState extends State<FilteredItems> {
   @override
   void initState() {
     super.initState();
-    // Accessing criteria values
     min = widget.criteria.min;
     max = widget.criteria.max;
     order = widget.criteria.order;
     category = widget.criteria.category;
+    _displayFilteredProducts(context);
   }
 
   List<Product> items = [];
+  
 
 
-  Future<void> _DisplayFilteredProducts(BuildContext context) async {
+  Future<void> _displayFilteredProducts(BuildContext context) async {
     Uri url = Uri.parse('http://10.0.2.2:3000/product/filter');
+    
+    print(min);
+    print(max);
+    print(order);
+    print(category);
 
     String queryParams = '';
 
     if (category != "" && order != "") {
-      queryParams = 'min=$min&max=$max&order=$order&cat=$category';
+      queryParams = 'min=${min}&max=${max}&order=${order}&cat=${category}';
     } else if (order != "") {
-      queryParams = 'min=$min&max=$max&order=$order';
+      queryParams = 'min=${min}&max=${max}&order=${order}';
     } else if (category != "") {
-      queryParams = 'min=$min&max=$max&cat=$category';
+      queryParams = 'min=${min}&max=${max}&cat=${category}';
     } else {
-      queryParams = 'min=$min&max=$max&order=asc';
+      queryParams = 'min=${min}&max=${max}&order=asc';
     }
 
     url = Uri.parse('$url?$queryParams');
 
 
-    // if (category != "" && order != ""){
-    //   url += "min=${min}&max=${max}&order=${order}&cat=${category}";
-    // }else if (order != ""){
-
-    //   url += "min=${min}&max=${max}&order=${order}";
-    // }else if (category != ""){
-    //   url += "min=${min}&max=${max}&cat=${category}";
-    // }else{
-    //   url += "min=${min}&max=${max}&order=asc";
-    // }
 
     final response = await http.get(
       url,
@@ -126,7 +106,9 @@ class _FilteredItemsState extends State<FilteredItems> {
     if (decodedBody.containsKey('data') && decodedBody['data'] is List) {
       final List<Map<String, dynamic>> fetchedItems =
         List<Map<String, dynamic>>.from(decodedBody['data']);
-
+    print(message);
+    print(statusCode);
+    print(fetchedItems);
 
       if (statusCode == 200) {
         setState(() {
@@ -150,15 +132,150 @@ class _FilteredItemsState extends State<FilteredItems> {
       appBar: AppBar(
         title: Text('Filtered Items'),
       ),
-      // body: ListView.builder(
-      //   itemCount: filteredProducts.length,
-      //   itemBuilder: (context, index) {
-      //     return ListTile(
-      //       title: Text(filteredProducts[index].name),
-      //       // Display more product details here as needed
-      //     );
-      //   },
-      // ),
+      body: Padding(
+          padding: const EdgeInsets.only(top: 20, bottom: 20),
+          child: Center(
+            child: Container(
+              height: SizeConfig.screenHeight,
+              width: SizeConfig.defaultSize! * 40,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Expanded(
+                    child: Container(
+                      // width: SizeConfig.defaultSize! * 40,
+                      
+                      color: Colors.transparent,
+                      
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.0,
+                          mainAxisSpacing: 10.0,
+                          mainAxisExtent: SizeConfig.defaultSize! * 35,
+                        ),
+                        itemCount: items.length,
+            
+                        itemBuilder: (BuildContext context, int index) {
+                          Product item = items[index];
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: secondColor,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: kMainColor,
+                                width: 2,
+                              )
+                            ),
+                            
+                            child: Stack(
+                              children: [
+            
+                                // Align(
+                                //   alignment: Alignment.topRight,
+                                //   child: Padding(
+                                //     padding: const EdgeInsets.all(5.0),
+                                //     child: GestureDetector(
+                                //       onTap: () {
+                                //         setState(() {
+                                //           isFavorite = !isFavorite; // Toggle favorite state
+                                //         });
+                                //       },
+                                //       child: Icon(
+                                //         isFavorite ? Icons.favorite : Icons.favorite_border,
+                                //         color: isFavorite ? redColor : kMainColor,
+                                //       ),
+                                //     ),
+                                //   ),
+                                  
+                                // ),
+            
+                                InkWell(
+                                  onTap: () {
+                                    // Handle item tap
+                                    print('Tapped on: ${item.id}');
+            
+                                    // setState(() {
+                                    //   isFavorite = !isFavorite; // Toggle favorite state
+                                    // });
+                                    // Navigator.pushNamed(context,'/productDetails',arguments:item.id)
+                                  },
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                                    
+                                      Center(
+                                        child: Container(
+                                          height: SizeConfig.defaultSize! * 20,
+                                          width: SizeConfig.defaultSize! * 15,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                item.image,                                      
+                                              ),
+                                              fit: BoxFit.fitWidth, 
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                                    
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 10),
+                                        child: Column(
+                                          
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          
+                                          children: [
+                            
+                                            Text(
+                                              item.name,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 13.sp,
+                                              ),
+                                            ),
+                            
+                                            SizedBox(
+                                              height: SizeConfig.defaultSize,
+                                            ),
+                            
+                                            Text(
+                                              'Price: \$${item.price}',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade800,
+                                                fontSize: 12.sp,
+                                              ),
+                                            ),
+                            
+                                            SizedBox(
+                                              height: SizeConfig.defaultSize,
+                                            ),
+                            
+                                            Text(
+                                              'Brand: ${item.brand}',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade800,
+                                                fontSize: 12.sp,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+            
+                    ),
+                  ),
+            ),
+          ),
+        ),
     );
   }
 }
