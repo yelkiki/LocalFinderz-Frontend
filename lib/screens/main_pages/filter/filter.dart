@@ -235,7 +235,7 @@ class _FilterState extends State<Filter> {
                               setState(() {
                                 isSelected = false;
                                 LowerToHigher = false;
-                                order = order;
+                                order = "";
                               });
                             }
                             print('Lower to Higher selected: $LowerToHigher'); 
@@ -267,7 +267,7 @@ class _FilterState extends State<Filter> {
                               setState(() {
                                 isSelected2 = false;
                                 HigherToLower = false;
-                                order = order;
+                                order = "";
                               });
                             }
                             
@@ -381,13 +381,23 @@ class _FilterState extends State<Filter> {
                     CheckboxListTile(
                       value: shirts,
                       onChanged: (value) {
-                        setState(() {
-                          pants = false;
-                          sets = false;
-                          hoodies = false;
-                          shirts = value!;
-                          category = "Shirts";
-                        });
+                        if (value == true){
+                          setState(() {
+                            pants = false;
+                            sets = false;
+                            hoodies = false;
+                            shirts = true;
+                            category = "Shirts";
+                          });
+                        } else {
+                          setState(() {
+                            pants = false;
+                            sets = false;
+                            hoodies = false;
+                            shirts = false;
+                            category = "";
+                          });
+                        }
                       },
                       controlAffinity: ListTileControlAffinity.leading,
                       activeColor: redColor,
@@ -405,13 +415,23 @@ class _FilterState extends State<Filter> {
                     CheckboxListTile(
                       value: pants,
                       onChanged: (value) {
-                        setState(() {
-                          shirts = false;
-                          sets = false;
-                          hoodies = false;
-                          pants = value!;
-                          category = "Pants";
-                        });
+                        if (value == true){
+                          setState(() {
+                            pants = true;
+                            sets = false;
+                            hoodies = false;
+                            shirts = false;
+                            category = "Pants";
+                          });
+                        } else {
+                          setState(() {
+                            pants = false;
+                            sets = false;
+                            hoodies = false;
+                            shirts = false;
+                            category = "";
+                          });
+                        }
                       },
                       controlAffinity: ListTileControlAffinity.leading,
                       activeColor: redColor,
@@ -429,13 +449,23 @@ class _FilterState extends State<Filter> {
                     CheckboxListTile(
                       value: sets,
                       onChanged: (value) {
-                        setState(() {
-                          shirts = false;
-                          pants = false;
-                          hoodies = false;
-                          sets = value!;
-                          category = "Sets";
-                        });
+                        if (value == true){
+                          setState(() {
+                            pants = false;
+                            sets = true;
+                            hoodies = false;
+                            shirts = false;
+                            category = "Sets";
+                          });
+                        } else {
+                          setState(() {
+                            pants = false;
+                            sets = false;
+                            hoodies = false;
+                            shirts = false;
+                            category = "";
+                          });
+                        }
                       },
                       controlAffinity: ListTileControlAffinity.leading,
                       activeColor: redColor,
@@ -453,13 +483,23 @@ class _FilterState extends State<Filter> {
                     CheckboxListTile(
                       value: hoodies,
                       onChanged: (value) {
-                        setState(() {
-                          pants = false;
-                          sets = false;
-                          shirts = false;
-                          hoodies = value!;
-                          category = "Hoodies";
-                        });
+                        if (value == true){
+                          setState(() {
+                            pants = false;
+                            sets = false;
+                            hoodies = true;
+                            shirts = false;
+                            category = "Hoodies";
+                          });
+                        } else {
+                          setState(() {
+                            pants = false;
+                            sets = false;
+                            hoodies = false;
+                            shirts = false;
+                            category = "";
+                          });
+                        }
                       },
                       controlAffinity: ListTileControlAffinity.leading,
                       activeColor: redColor,
