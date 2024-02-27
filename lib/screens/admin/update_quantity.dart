@@ -24,7 +24,7 @@ class _UpdateQuantityState extends State<UpdateQuantity> {
 
   Future<void> _delProduct(BuildContext context) async {
       final token = ModalRoute.of(context)!.settings.arguments as String?; 
-      final Uri url = Uri.parse('http://10.0.2.2:3000/admin/UpdateQuantity/${prodid.text}');
+      final Uri url = Uri.parse('https://localfinderz.onrender.com/admin/UpdateQuantity/${prodid.text}');
 
       try {
         if (token != null){

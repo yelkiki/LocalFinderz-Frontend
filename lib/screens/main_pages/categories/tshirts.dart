@@ -75,7 +75,7 @@ class _TshirtsState extends State<Tshirts> {
   }
 
  Future<void> _DisplayShirts(BuildContext context) async {
-  final Uri url = Uri.parse('http://10.0.2.2:3000/product/category');
+  final Uri url = Uri.parse('https://localfinderz.onrender.com/product/category');
   final response = await http.post(
     url,
     headers: <String, String>{ 

@@ -69,7 +69,7 @@ class _FilteredItemsState extends State<FilteredItems> {
 
 
   Future<void> _displayFilteredProducts(BuildContext context) async {
-    Uri url = Uri.parse('http://10.0.2.2:3000/product/filter');
+    Uri url = Uri.parse('https://localfinderz.onrender.com/product/filter');
     
     print(min);
     print(max);

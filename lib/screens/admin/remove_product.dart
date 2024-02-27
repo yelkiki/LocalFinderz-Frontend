@@ -22,7 +22,7 @@ class _RemoveProductState extends State<RemoveProduct> {
   Future<void> _delProduct(BuildContext context) async {
       final token = ModalRoute.of(context)!.settings.arguments as String?; 
       print(prodid.text);
-      final Uri url = Uri.parse('http://10.0.2.2:3000/admin/removeProduct/${prodid.text}');
+      final Uri url = Uri.parse('https://localfinderz.onrender.com/admin/removeProduct/${prodid.text}');
 
       try {
         if (token != null){

@@ -74,7 +74,7 @@ class _SetsState extends State<Sets> {
   }
 
  Future<void> _DisplaySets(BuildContext context) async {
-  final Uri url = Uri.parse('http://10.0.2.2:3000/product/category');
+  final Uri url = Uri.parse('https://localfinderz.onrender.com/product/category');
   final response = await http.post(
     url,
     headers: <String, String>{ 

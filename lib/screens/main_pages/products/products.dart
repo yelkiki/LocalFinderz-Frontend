@@ -77,7 +77,7 @@ class _ProductsState extends State<Products> {
   }
 
  Future<void> _DisplayProducts(BuildContext context) async {
-  final Uri url = Uri.parse('http://10.0.2.2:3000/product/displayAll');
+  final Uri url = Uri.parse('https://localfinderz.onrender.com/product/displayAll');
 
   final response = await http.get(
     url,

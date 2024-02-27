@@ -26,7 +26,7 @@ class _ForgetPageState extends State<ForgetPassword>{
       _isLoading = true; // Set loading state to true when reset password starts
     });
 
-    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/sendmail');
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/auth/sendmail');
 
     final response = await http.post(
       url,

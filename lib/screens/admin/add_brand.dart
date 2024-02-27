@@ -24,8 +24,8 @@ class _AddBrandState extends State<AddBrand> {
   final TextEditingController logoController = TextEditingController();
 
   Future<void> _addBrand(BuildContext context) async {
-    final token = ModalRoute.of(context)!.settings.arguments as String?; 
-    final Uri url = Uri.parse('http://10.0.2.2:3000/admin/addBrand');
+    final token = ModalRoute.of(context)!.settings.arguments as String?;
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/admin/addBrand');
 
     try {
       if (token != null){

@@ -27,7 +27,7 @@ class _AddProductState extends State<AddProduct> {
 
 Future<void> _addProduct(BuildContext context) async {
     final token = ModalRoute.of(context)!.settings.arguments as String?; 
-    final Uri url = Uri.parse('http://10.0.2.2:3000/admin/addProduct');
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/admin/addProduct');
 
     try {
       if (token != null){

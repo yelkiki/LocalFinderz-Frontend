@@ -31,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
   Future<void> _register(BuildContext context) async {
-    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/signup');
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/auth/signup');
 
     try {
       final response = await http.post(

@@ -44,7 +44,7 @@ class _BrandsState extends State<Brands> {
   }
 
  Future<void> _DisplayBrands(BuildContext context) async {
-  final Uri url = Uri.parse('http://10.0.2.2:3000/product/brands');
+  final Uri url = Uri.parse('https://localfinderz.onrender.com/product/brands');
 
   final response = await http.get(
     url,

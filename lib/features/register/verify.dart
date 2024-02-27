@@ -19,7 +19,7 @@ class VerifyToken extends StatefulWidget {
 class _VerifyTokenState extends State<VerifyToken> {
     final TextEditingController tokenController = TextEditingController();
   Future<void> _verifyToken(BuildContext context) async {
-    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/verifyToken');
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/auth/verifyToken');
 
     final response = await http.post(
       url,

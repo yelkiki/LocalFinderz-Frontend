@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = true; // Set loading state to true when reset password starts
     });
 
-    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/login');
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/auth/login');
 
     try {
       final response = await http.post(

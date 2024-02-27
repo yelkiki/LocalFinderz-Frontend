@@ -24,7 +24,7 @@ class _NewPasswordState extends State<NewPassword> {
   final TextEditingController confPassController = TextEditingController();
 
   Future<void> _newPassword(BuildContext context) async {
-    final Uri url = Uri.parse('http://10.0.2.2:3000/auth/changePass');
+    final Uri url = Uri.parse('https://localfinderz.onrender.com/auth/changePass');
     final userID = ModalRoute.of(context)!.settings.arguments as int?; // gebto mel file elfat
     final response = await http.post(
       url,

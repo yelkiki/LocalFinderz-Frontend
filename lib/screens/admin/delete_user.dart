@@ -21,7 +21,7 @@ class _DeleteUserState extends State<DeleteUser> {
 
   Future<void> _delUser(BuildContext context) async {
       final token = ModalRoute.of(context)!.settings.arguments as String?; 
-      final Uri url = Uri.parse('http://10.0.2.2:3000/admin/DeleteUser');
+      final Uri url = Uri.parse('https://localfinderz.onrender.com/admin/DeleteUser');
 
       try {
         if (token != null){

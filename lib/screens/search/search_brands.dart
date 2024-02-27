@@ -48,7 +48,7 @@ class _SearchBrandsState extends State<SearchBrands> {
   final TextEditingController search = TextEditingController();
 
  Future<void> _DisplaySearchedBrands(BuildContext context) async {
-  final Uri url = Uri.parse('http://10.0.2.2:3000/product/searchBrand');
+  final Uri url = Uri.parse('https://localfinderz.onrender.com/product/searchBrand');
 
   final response = await http.post(
     url,
