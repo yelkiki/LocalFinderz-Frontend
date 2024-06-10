@@ -1,11 +1,12 @@
 // ignore_for_file: unnecessary_brace_in_string_interps, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors
 
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart' as http;
 import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/screens/main_pages/filter/filter.dart';
-import 'package:http/http.dart' as http;
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 

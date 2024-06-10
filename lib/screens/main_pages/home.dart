@@ -4,14 +4,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:local_finderzzz/utils/size_config.dart';
+// import 'package:local_finderzzz/utils/widgets/constants.dart';
+import 'package:http/http.dart' as http;
 import 'package:local_finderzzz/features/register/toast.dart';
 import 'package:local_finderzzz/screens/search/filter_items.dart';
 import 'package:local_finderzzz/utils/size_config.dart';
 import 'package:local_finderzzz/utils/widgets/constants.dart';
 import 'package:popover/popover.dart';
-// import 'package:local_finderzzz/utils/size_config.dart';
-// import 'package:local_finderzzz/utils/widgets/constants.dart';
-import 'package:http/http.dart' as http;
 
 
 
@@ -62,10 +62,10 @@ class _HomePageState extends State<HomePage> {
 
   final response = await http.get(
     url,
-    headers: <String, String>{ 
+    headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
-      // "authorization":token!, 
-    }, 
+      // "authorization":token!,
+    },
   );
 
   final Map<String, dynamic> decodedBody = json.decode(response.body);
